@@ -1,6 +1,8 @@
 package auth
 
-import "github.com/gofiber/fiber/v2"
+import (
+	"github.com/gofiber/fiber/v2"
+)
 
 type Handler struct {
 	service *Service
@@ -39,17 +41,59 @@ func (h *Handler) JWKS(c *fiber.Ctx) error {
 }
 
 func (h *Handler) Login(c *fiber.Ctx) error {
-	return c.Status(501).JSON(fiber.Map{"message": "not implemented"})
+	var dto LoginDTO
+	if err := c.BodyParser(&dto); err != nil {
+		return c.Status(400).JSON(fiber.Map{"error": "invalid request body"})
+	}
+
+	tokens, err := h.service.SignIn(c.Context(), dto)
+	if err != nil {
+		return c.Status(401).JSON(fiber.Map{"error": err.Error()})
+	}
+
+	return c.JSON(tokens)
 }
 
 func (h *Handler) Register(c *fiber.Ctx) error {
-	return c.Status(501).JSON(fiber.Map{"message": "not implemented"})
+	var dto RegisterDTO
+	if err := c.BodyParser(&dto); err != nil {
+		return c.Status(400).JSON(fiber.Map{"error": "invalid request body"})
+	}
+
+	user, err := h.service.SignUp(c.Context(), dto)
+	if err != nil {
+		return c.Status(400).JSON(fiber.Map{"error": err.Error()})
+	}
+
+	return c.Status(201).JSON(user)
 }
 
 func (h *Handler) Refresh(c *fiber.Ctx) error {
-	return c.Status(501).JSON(fiber.Map{"message": "not implemented"})
+	var dto struct {
+		RefreshToken string `json:"refresh_token"`
+	}
+	if err := c.BodyParser(&dto); err != nil {
+		return c.Status(400).JSON(fiber.Map{"error": "invalid request body"})
+	}
+
+	tokens, err := h.service.RefreshToken(c.Context(), dto.RefreshToken)
+	if err != nil {
+		return c.Status(401).JSON(fiber.Map{"error": "invalid or expired refresh token"})
+	}
+
+	return c.JSON(tokens)
 }
 
 func (h *Handler) Logout(c *fiber.Ctx) error {
-	return c.Status(501).JSON(fiber.Map{"message": "not implemented"})
+	userID := c.Locals("userID")
+	if userID == nil {
+		return c.Status(401).JSON(fiber.Map{"error": "unauthorized"})
+	}
+
+	tokenID := c.Locals("tokenID")
+	if tokenID != nil {
+		h.service.Logout(c.Context(), userID.(string), tokenID.(string))
+	}
+
+	return c.JSON(fiber.Map{"message": "logged out"})
 }
