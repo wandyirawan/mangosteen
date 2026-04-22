@@ -2,11 +2,14 @@ package auth
 
 import (
 	"crypto/rsa"
+	"encoding/pem"
+	"errors"
 	"fmt"
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/google/uuid"
+	"mangosteen/config"
 )
 
 type JWTManager struct {
@@ -15,25 +18,65 @@ type JWTManager struct {
 	issuer   string
 }
 
-func NewJWTManager() *JWTManager {
-	return &JWTManager{
-		issuer: "mangosteen",
+func NewJWTManager(cfg *config.JWTConfig) (*JWTManager, error) {
+	mgr := &JWTManager{
+		issuer: cfg.Issuer,
 	}
+
+	if cfg.PrivateKeyPEM != "" {
+		key, err := parsePrivateKey(cfg.PrivateKeyPEM)
+		if err != nil {
+			return nil, err
+		}
+		mgr.privateKey = key
+	}
+
+	if cfg.PublicKeyPEM != "" {
+		key, err := parsePublicKey(cfg.PublicKeyPEM)
+		if err != nil {
+			return nil, err
+		}
+		mgr.publicKey = key
+	}
+
+	return mgr, nil
+}
+
+func parsePrivateKey(pemKey string) (*rsa.PrivateKey, error) {
+	block, _ := pem.Decode([]byte(pemKey))
+	if block == nil || block.Type != "RSA PRIVATE KEY" {
+		return nil, errors.New("invalid private key")
+	}
+	return jwt.ParseRSAPrivateKeyFromPEM([]byte(pemKey))
+}
+
+func parsePublicKey(pemKey string) (*rsa.PublicKey, error) {
+	block, _ := pem.Decode([]byte(pemKey))
+	if block == nil || block.Type != "PUBLIC KEY" {
+		return nil, errors.New("invalid public key")
+	}
+	return jwt.ParseRSAPublicKeyFromPEM([]byte(pemKey))
 }
 
 func (j *JWTManager) IssueAccess(userID, email, role string) (string, error) {
 	now := time.Now()
 	claims := jwt.MapClaims{
-		"sub":    userID,
-		"email":  email,
-		"role":   role,
-		"iat":    now.Unix(),
-		"exp":    now.Add(15 * time.Minute).Unix(),
+		"sub":   userID,
+		"email": email,
+		"role":  role,
+		"iat":   now.Unix(),
+		"exp":   now.Add(15 * time.Minute).Unix(),
 		"jti":   uuid.New().String(),
 		"iss":   j.issuer,
 	}
 
-	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
+	var token *jwt.Token
+	if j.privateKey != nil {
+		token = jwt.NewWithClaims(jwt.SigningMethodRS256, claims)
+		return token.SignedString(j.privateKey)
+	}
+
+	token = jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 	return token.SignedString([]byte("secret"))
 }
 
@@ -47,17 +90,28 @@ func (j *JWTManager) IssueRefresh() (string, error) {
 		"iss":  j.issuer,
 	}
 
-	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
+	var token *jwt.Token
+	if j.privateKey != nil {
+		token = jwt.NewWithClaims(jwt.SigningMethodRS256, claims)
+		return token.SignedString(j.privateKey)
+	}
+
+	token = jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 	return token.SignedString([]byte("secret"))
 }
 
 func (j *JWTManager) Validate(tokenString string) (jwt.MapClaims, error) {
-	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
-		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
-			return nil, fmt.Errorf("unexpected signing method: %v", token.Header["alg"])
+	keyFunc := func(token *jwt.Token) (interface{}, error) {
+		if _, ok := token.Method.(*jwt.SigningMethodRSA); ok && j.publicKey != nil {
+			return j.publicKey, nil
 		}
-		return []byte("secret"), nil
-	})
+		if _, ok := token.Method.(*jwt.SigningMethodHMAC); ok {
+			return []byte("secret"), nil
+		}
+		return nil, fmt.Errorf("unexpected signing method: %v", token.Header["alg"])
+	}
+
+	token, err := jwt.Parse(tokenString, keyFunc)
 	if err != nil {
 		return nil, err
 	}

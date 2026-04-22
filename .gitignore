@@ -3,4 +3,6 @@
 data/
 logs/
 .env
+.env.example
 server
+certs/

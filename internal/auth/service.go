@@ -23,11 +23,11 @@ type Service struct {
 	password *crypto.PasswordHasher
 }
 
-func NewService(repo *Repository, cache *cache.ValkeyClient) *Service {
+func NewService(repo *Repository, cache *cache.ValkeyClient, jwt *JWTManager) *Service {
 	return &Service{
 		repo:     repo,
 		cache:    cache,
-		jwt:      NewJWTManager(),
+		jwt:      jwt,
 		password: crypto.NewPasswordHasher(),
 	}
 }
