@@ -1,58 +1,155 @@
-# 🥭 Mangosee
+# 🥭 Mangosteen
 
-Go port of [Durian](https://github.com/wandyirawan/durian) - Modern IAM server.
+**Lightweight Keycloak alternative in Go** - MVP for small businesses & systems.
+
+## Why Mangosteen?
+
+Keycloak is powerful but **overwhelming** for small projects:
+- Heavy resource usage
+- Complex setup
+- Enterprise features you don't need
+- Java dependency
+
+**Mangosteen** = Keycloak features you actually need, minus the enterprise bloat.
+
+## What It Replaces
+
+| Keycloak | Mangosteen |
+|---------|-----------|
+| WildFly/JBoss | Go binary (~15MB) |
+| PostgreSQL | SQLite (embedded) |
+| Infinispan | Optional Valkey/Redis |
+| OAuth | Simple JWT RS256 |
+| User federation | Local users only |
+| Client templates | REST API |
+| Realm concepts | Single app |
+
+## For Who?
+
+- Small to medium systems
+- Microservices needing auth
+- Projects that outgrew JWT but don't need Keycloak
+- Teams wanting simple IAM without ops overhead
 
 ## Stack
-- **Go 1.22+**
-- **Fiber** (web framework)
-- **Gorm + SQLite** (database)
-- **Valkey/Redis** (cache, optional with fallback)
-- **Viper** (configuration)
-- **Argon2id** (password hashing)
-- **JWT RS256** (asymmetric signing)
+
+- **Go 1.25+** - Compile to single binary
+- **Fiber** - Fast HTTP framework
+- **SQLite** - Embedded DB, no setup
+- **sqlc** - Type-safe SQL (no ORM)
+- **Argon2id** - Secure password hashing
+- **JWT RS256** - Asymmetric signing with JWKS
 
 ## Structure
+
 ```
-cmd/server/         # Entry point
-internal/           # Business logic
-├── auth/           # Authentication (JWT, login, register, refresh)
-├── user/           # User management (CRUD, admin ops)
-├── health/         # Health checks & metrics
-└── middleware/     # JWT validation & RBAC
-pkg/                # Shared packages
-├── database/       # SQLite connection
-├── cache/          # Valkey client with fallback
-└── crypto/         # Argon2id password hashing
-config/             # Viper configuration
+cmd/server/      # Entry point
+config/        # Configuration
+sql/           # Migrations & queries
+internal/     # Business logic (no subdirs)
+├── auth/      # JWT, login, register, refresh
+├── user/      # User CRUD
+├── health/    # Health checks
+├── admin/     # Admin operations
+├── middleware/
+└── db/       # sqlc generated
+pkg/          # Shared packages
+└── cache/
+└── worker/    # Background jobs
 ```
+
+**Flat folder** = idiomatic Go. No complex layer hierarchy.
+
+## Features
+
+- ✅ JWT RS256 with JWKS endpoint
+- ✅ Refresh token rotation
+- ✅ RBAC (admin/user roles)
+- ✅ Health checks (live/ready/metrics)
+- ✅ Log upload to S3/Garage
+- ✅ Graceful shutdown
 
 ## Quick Start
 
 ```bash
-# 1. Run the generator
-chmod +x create-mangosteen.sh
-./create-mangosteen.sh
+# Clone & run
+git clone https://github.com/wandyirawan/mangosteen.git
+cd mangosteen
 
-# 2. Generate RSA keys
-openssl genrsa -out private.pem 2048
-openssl rsa -in private.pem -pubout -out public.pem
+# Generate JWT keys
+chmod +x generate-certs.sh && ./generate-certs.sh
 
-# 3. Convert keys for .env (single line with \n)
-awk 'NF {sub(/\r/, ""); printf "%s\\n",$0}' private.pem
-awk 'NF {sub(/\r/, ""); printf "%s\\n",$0}' public.pem
-
-# 4. Copy .env.example to .env and fill in JWT keys
+# Copy keys to .env
 cp .env.example .env
+# Edit .env with JWT_PRIVATE_KEY & JWT_PUBLIC_KEY
 
-# 5. Install deps and run
-go mod tidy
+# Run
 go run cmd/server/main.go
 ```
 
-## Features (from Durian)
-- [ ] JWT RS256 with JWKS
-- [ ] Refresh token rotation
-- [ ] RBAC (admin/user)
-- [ ] Session audit
-- [ ] Health checks (live/ready/metrics)
-- [ ] Graceful shutdown
+## API Endpoints
+
+**Public:**
+```
+POST /api/auth/login
+POST /api/auth/register
+POST /api/auth/refresh
+GET  /.well-known/openid-configuration
+GET  /.well-known/jwks.json
+GET  /api/health/live
+GET  /api/health/ready
+GET  /api/health/metrics
+```
+
+**Auth required:**
+```
+GET    /api/users/me
+PATCH  /api/users/me
+DELETE /api/users/me
+POST   /api/auth/logout
+```
+
+**Admin only:**
+```
+GET    /api/users/
+GET    /api/users/all
+GET    /api/users/:id
+PATCH  /api/users/:id
+PATCH  /api/users/:id/role
+POST   /api/users/:id/activate
+DELETE /api/users/:id
+
+GET    /api/admin/logs/stats
+POST   /api/admin/logs/retry
+GET    /api/admin/info
+```
+
+## Differences from Keycloak
+
+| Feature | Keycloak | Mangosteen |
+|---------|---------|-----------|
+| Multi-tenant | ✅ Realms | ❌ Single app |
+| User federation | ✅ LDAP/AD | ❌ Local only |
+| OAuth flows | ✅ Full | ❌ Simple |
+| Client adapters | ✅ Many | ❌ REST only |
+| Themes | ✅ UI | ❌ API |
+| Conferences | ✅ Many | ❌ None |
+| HA mode | ✅ Infinispan | ❌ Single |
+| Database | Any SQL | SQLite default |
+
+## Production Ready?
+
+Yes, for:
+- Small to medium load
+- Single instance
+- Embedded or small external DB
+
+No, if you need:
+- Multi-tenant
+- LDAP integration
+- High availability
+- Complex oauth flows
+
+## License
+
+MIT - Free to use, modify, distribute.
