@@ -12,21 +12,7 @@ func NewHandler(service *Service) *Handler {
 	return &Handler{service: service}
 }
 
-func (h *Handler) RegisterRoutes(app fiber.Router) {
-	users := app.Group("/users")
-
-	users.Get("/me", h.GetMe)
-	users.Patch("/me", h.UpdateMe)
-	users.Delete("/me", h.DeactivateMe)
-
-	users.Get("/", h.ListUsers)
-	users.Get("/all", h.ListAllUsers)
-	users.Get("/:id", h.GetUser)
-	users.Patch("/:id", h.UpdateUser)
-	users.Patch("/:id/role", h.ChangeRole)
-	users.Post("/:id/activate", h.ActivateUser)
-	users.Delete("/:id", h.DeleteUser)
-}
+func (h *Handler) RegisterRoutes(app fiber.Router) {}
 
 func (h *Handler) GetMe(c *fiber.Ctx) error {
 	userID := c.Locals("userID")
@@ -71,6 +57,16 @@ func (h *Handler) DeactivateMe(c *fiber.Ctx) error {
 	}
 
 	return c.JSON(fiber.Map{"message": "deactivated"})
+}
+
+func (h *Handler) RegisterAdminRoutes(app fiber.Router) {
+	app.Get("/", h.ListUsers)
+	app.Get("/all", h.ListAllUsers)
+	app.Get("/:id", h.GetUser)
+	app.Patch("/:id", h.UpdateUser)
+	app.Patch("/:id/role", h.ChangeRole)
+	app.Post("/:id/activate", h.ActivateUser)
+	app.Delete("/:id", h.DeleteUser)
 }
 
 func (h *Handler) ListUsers(c *fiber.Ctx) error {

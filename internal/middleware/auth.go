@@ -40,6 +40,16 @@ func (m *AuthMiddleware) RequireAuth() fiber.Handler {
 	}
 }
 
+func (m *AuthMiddleware) RequireAdmin() fiber.Handler {
+	return func(c *fiber.Ctx) error {
+		role := c.Locals("role")
+		if role == nil || role != "admin" {
+			return c.Status(403).JSON(fiber.Map{"error": "admin access required"})
+		}
+		return c.Next()
+	}
+}
+
 func (m *AuthMiddleware) OptionalAuth() fiber.Handler {
 	return func(c *fiber.Ctx) error {
 		return c.Next()
