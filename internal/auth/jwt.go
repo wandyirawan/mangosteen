@@ -2,9 +2,11 @@ package auth
 
 import (
 	"crypto/rsa"
+	"encoding/base64"
 	"encoding/pem"
 	"errors"
 	"fmt"
+	"math/big"
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"
@@ -12,15 +14,30 @@ import (
 	"mangosteen/config"
 )
 
+type JWKS struct {
+	Keys []JWK `json:"keys"`
+}
+
+type JWK struct {
+	Kid string `json:"kid"`
+	Kty string `json:"kty"`
+	Alg string `json:"alg"`
+	Use string `json:"use"`
+	N   string `json:"n"`
+	E   string `json:"e"`
+}
+
 type JWTManager struct {
 	privateKey *rsa.PrivateKey
 	publicKey *rsa.PublicKey
 	issuer   string
+	kid      string
 }
 
 func NewJWTManager(cfg *config.JWTConfig) (*JWTManager, error) {
 	mgr := &JWTManager{
 		issuer: cfg.Issuer,
+		kid:   uuid.New().String()[:8],
 	}
 
 	if cfg.PrivateKeyPEM != "" {
@@ -66,8 +83,8 @@ func (j *JWTManager) IssueAccess(userID, email, role string) (string, error) {
 		"role":  role,
 		"iat":   now.Unix(),
 		"exp":   now.Add(15 * time.Minute).Unix(),
-		"jti":   uuid.New().String(),
-		"iss":   j.issuer,
+		"jti":  uuid.New().String(),
+		"iss":  j.issuer,
 	}
 
 	var token *jwt.Token
@@ -120,4 +137,23 @@ func (j *JWTManager) Validate(tokenString string) (jwt.MapClaims, error) {
 		return claims, nil
 	}
 	return nil, fmt.Errorf("invalid token")
+}
+
+func (j *JWTManager) GetJWKS() JWKS {
+	keys := make([]JWK, 0)
+	if j.publicKey != nil {
+		keys = append(keys, j.toJWK())
+	}
+	return JWKS{Keys: keys}
+}
+
+func (j *JWTManager) toJWK() JWK {
+	return JWK{
+		Kid: j.kid,
+		Kty: "RSA",
+		Alg: "RS256",
+		Use: "sig",
+		N:   base64.RawURLEncoding.EncodeToString(j.publicKey.N.Bytes()),
+		E:   base64.RawURLEncoding.EncodeToString(big.NewInt(int64(j.publicKey.E)).Bytes()),
+	}
 }

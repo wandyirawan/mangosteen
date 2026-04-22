@@ -42,6 +42,7 @@ type JWTConfig struct {
 	Issuer        string
 	AccessTTL     int // minutes
 	RefreshTTL    int // days
+	JWKS        string // Keycloak-style JWKS JSON
 }
 
 type LoggerConfig struct {
