@@ -31,6 +31,11 @@ UPDATE users
 SET active = 0, updated_at = ?
 WHERE id = ?;
 
+-- name: ActivateUser :exec
+UPDATE users
+SET active = 1, updated_at = ?
+WHERE id = ?;
+
 -- name: HardDeleteUser :exec
 DELETE FROM users
 WHERE id = ?;

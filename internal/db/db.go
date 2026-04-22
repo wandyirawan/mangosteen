@@ -1,6 +1,7 @@
 package db
 
 import (
+	"context"
 	"database/sql"
 	_ "github.com/mattn/go-sqlite3"
 	"os"
@@ -11,7 +12,13 @@ type DB struct {
 }
 
 type Queries struct {
-	db *DB
+	db DBTX
+}
+
+type DBTX interface {
+	ExecContext(context.Context, string, ...interface{}) (sql.Result, error)
+	QueryContext(context.Context, string, ...interface{}) (*sql.Rows, error)
+	QueryRowContext(context.Context, string, ...interface{}) *sql.Row
 }
 
 func Open(dsn string) (*DB, error) {
@@ -43,7 +50,7 @@ func MustOpen(dsn string) *DB {
 }
 
 func (db *DB) Query() *Queries {
-	return &Queries{db}
+	return &Queries{db: db.DB}
 }
 
 func (db *DB) Close() error {

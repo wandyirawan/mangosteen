@@ -38,3 +38,7 @@ func (s *Service) SoftDelete(ctx context.Context, id string) error {
 func (s *Service) HardDelete(ctx context.Context, id string) error {
 	return s.repo.HardDelete(ctx, id)
 }
+
+func (s *Service) ActivateUser(ctx context.Context, id string) error {
+	return s.repo.Activate(ctx, id)
+}

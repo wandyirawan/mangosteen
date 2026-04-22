@@ -86,6 +86,13 @@ func (r *Repository) HardDelete(ctx context.Context, id string) error {
 	return r.db.HardDeleteUser(ctx, id)
 }
 
+func (r *Repository) Activate(ctx context.Context, id string) error {
+	return r.db.ActivateUser(ctx, db.ActivateUserParams{
+		ID:        id,
+		UpdatedAt: time.Now().Format(time.RFC3339),
+	})
+}
+
 func toUser(row db.User) *User {
 	return &User{
 		ID:        row.ID,
