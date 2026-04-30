@@ -57,4 +57,7 @@ WHERE id = ?;
 -- name: RevokeAllUserTokens :exec
 UPDATE refresh_tokens
 SET revoked = 1
-WHERE user_id = ?;
+WHERE user_id = ?;-- name: GetRefreshTokenByHash :one
+SELECT id, user_id, token_hash, expires_at, revoked, created_at
+FROM refresh_tokens
+WHERE token_hash = ? AND revoked = 0;

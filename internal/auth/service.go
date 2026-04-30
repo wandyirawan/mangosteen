@@ -12,8 +12,10 @@ import (
 
 var (
 	ErrInvalidCredentials = errors.New("invalid credentials")
-	ErrUserNotFound      = errors.New("user not found")
-	ErrEmailExists       = errors.New("email already exists")
+	ErrUserNotFound       = errors.New("user not found")
+	ErrEmailExists        = errors.New("email already exists")
+	ErrTokenRevoked       = errors.New("token has been revoked")
+	ErrTokenExpired       = errors.New("token has expired")
 )
 
 type Service struct {
@@ -38,7 +40,14 @@ func (s *Service) SignIn(ctx context.Context, credentials LoginDTO) (*TokenPair,
 		return nil, ErrInvalidCredentials
 	}
 
-	ok, _ := s.password.Check(credentials.Password, user.PasswordHash)
+	if !user.Active {
+		return nil, errors.New("account is deactivated")
+	}
+
+	ok, err := s.password.Check(credentials.Password, user.PasswordHash)
+	if err != nil {
+		return nil, ErrInvalidCredentials
+	}
 	if !ok {
 		return nil, ErrInvalidCredentials
 	}
@@ -47,8 +56,8 @@ func (s *Service) SignIn(ctx context.Context, credentials LoginDTO) (*TokenPair,
 }
 
 func (s *Service) SignUp(ctx context.Context, data RegisterDTO) (*UserResponse, error) {
-	_, err := s.repo.FindByEmail(ctx, data.Email)
-	if err == nil {
+	existingUser, err := s.repo.FindByEmail(ctx, data.Email)
+	if err == nil && existingUser != nil {
 		return nil, ErrEmailExists
 	}
 
@@ -57,7 +66,7 @@ func (s *Service) SignUp(ctx context.Context, data RegisterDTO) (*UserResponse, 
 		return nil, err
 	}
 
-	now := time.Now().Format(time.RFC3339)
+	now := time.Now()
 	user := &User{
 		ID:           uuid.New().String(),
 		Email:        data.Email,
@@ -76,21 +85,51 @@ func (s *Service) SignUp(ctx context.Context, data RegisterDTO) (*UserResponse, 
 		ID:        user.ID,
 		Email:     user.Email,
 		Role:      user.Role,
-		CreatedAt: time.Now(),
+		CreatedAt: user.CreatedAt,
 	}, nil
 }
 
 func (s *Service) RefreshToken(ctx context.Context, refreshToken string) (*TokenPair, error) {
-	token, err := s.repo.GetRefreshToken(ctx, refreshToken)
+	// Validate the JWT refresh token first
+	claims, err := s.jwt.Validate(refreshToken)
 	if err != nil {
-		return nil, err
+		return nil, ErrInvalidCredentials
+	}
+
+	// Check token type
+	if claims["type"] != "refresh" {
+		return nil, errors.New("invalid token type")
+	}
+
+	// Get the token hash from the database
+	token, err := s.repo.GetRefreshTokenByHash(ctx, refreshToken)
+	if err != nil {
+		return nil, ErrInvalidCredentials
+	}
+
+	if token.Revoked {
+		return nil, ErrTokenRevoked
+	}
+
+	// Check expiration
+	expiresAt, err := time.Parse(time.RFC3339, token.ExpiresAt.Format(time.RFC3339))
+	if err != nil {
+		return nil, ErrTokenExpired
+	}
+	if time.Now().After(expiresAt) {
+		return nil, ErrTokenExpired
 	}
 
 	user, err := s.repo.FindByID(ctx, token.UserID)
 	if err != nil {
-		return nil, err
+		return nil, ErrUserNotFound
 	}
 
+	if !user.Active {
+		return nil, errors.New("account is deactivated")
+	}
+
+	// Revoke old token
 	if err := s.repo.RevokeRefreshToken(ctx, token.ID); err != nil {
 		return nil, err
 	}
@@ -114,15 +153,19 @@ func (s *Service) generateTokens(ctx context.Context, user *User) (*TokenPair, e
 	}
 
 	expiresAt := time.Now().Add(time.Hour * 24 * 7)
-	tokenHash, _ := s.password.Hash(refreshToken)
-	if _, err := s.repo.CreateRefreshToken(ctx, user.ID, tokenHash, expiresAt.Format(time.RFC3339)); err != nil {
+	tokenHash, err := s.password.Hash(refreshToken)
+	if err != nil {
+		return nil, err
+	}
+
+	if _, err := s.repo.CreateRefreshToken(ctx, user.ID, tokenHash, expiresAt); err != nil {
 		return nil, err
 	}
 
 	return &TokenPair{
 		AccessToken:  accessToken,
 		RefreshToken: refreshToken,
-		ExpiresIn:  15 * 60,
-		Type:      "Bearer",
+		ExpiresIn:    15 * 60,
+		Type:         "Bearer",
 	}, nil
 }

@@ -30,7 +30,7 @@ func (r *Repository) Create(ctx context.Context, user *User) error {
 		Email:        user.Email,
 		PasswordHash: user.PasswordHash,
 		Role:         user.Role,
-		Active:       1,
+		Active:       true,
 		CreatedAt:    user.CreatedAt,
 		UpdatedAt:    user.UpdatedAt,
 	})
@@ -44,21 +44,29 @@ func (r *Repository) FindByID(ctx context.Context, id string) (*User, error) {
 	return toUser(row), nil
 }
 
-func (r *Repository) CreateRefreshToken(ctx context.Context, userID, tokenHash, expiresAt string) (string, error) {
+func (r *Repository) CreateRefreshToken(ctx context.Context, userID, tokenHash string, expiresAt time.Time) (string, error) {
 	id := uuid.New().String()
 	err := r.db.CreateRefreshToken(ctx, db.CreateRefreshTokenParams{
 		ID:        id,
 		UserID:    userID,
 		TokenHash: tokenHash,
 		ExpiresAt: expiresAt,
-		Revoked:   0,
-		CreatedAt: time.Now().Format(time.RFC3339),
+		Revoked:   false,
+		CreatedAt: time.Now(),
 	})
 	return id, err
 }
 
 func (r *Repository) GetRefreshToken(ctx context.Context, id string) (*RefreshToken, error) {
 	row, err := r.db.GetRefreshToken(ctx, id)
+	if err != nil {
+		return nil, err
+	}
+	return toRefreshToken(row), nil
+}
+
+func (r *Repository) GetRefreshTokenByHash(ctx context.Context, tokenHash string) (*RefreshToken, error) {
+	row, err := r.db.GetRefreshTokenByHash(ctx, tokenHash)
 	if err != nil {
 		return nil, err
 	}
@@ -79,9 +87,9 @@ func toUser(row db.User) *User {
 		Email:        row.Email,
 		PasswordHash: row.PasswordHash,
 		Role:         row.Role,
-		Active:      row.Active == 1,
+		Active:       row.Active,
 		CreatedAt:    row.CreatedAt,
-		UpdatedAt:   row.UpdatedAt,
+		UpdatedAt:    row.UpdatedAt,
 	}
 }
 
@@ -91,6 +99,7 @@ func toRefreshToken(row db.RefreshToken) *RefreshToken {
 		UserID:    row.UserID,
 		TokenHash: row.TokenHash,
 		ExpiresAt: row.ExpiresAt,
-		Revoked:  row.Revoked == 1,
+		Revoked:   row.Revoked,
+		CreatedAt: row.CreatedAt,
 	}
 }
