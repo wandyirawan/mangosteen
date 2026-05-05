@@ -1,0 +1,24 @@
+{{define "users_list_content"}}
+<h1>Users</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{range .Users}}
+        <tr>
+            <td>{{.Email}}</td>
+            <td><span class="badge badge-{{.Role}}">{{.Role}}</span></td>
+            <td>{{if .Active}}Active{{else}}Inactive{{end}}</td>
+            <td><a href="/admin/users/{{.ID}}" role="button" class="outline" style="padding:0.2rem 0.8rem; font-size:0.85rem;">View</a></td>
+        </tr>
+        {{end}}
+    </tbody>
+</table>
+<p><small>{{len .Users}} user(s)</small></p>
+{{end}}

@@ -1,7 +1,5 @@
 package auth
 
-import "time"
-
 // Request DTOs
 type LoginDTO struct {
 	Email    string `json:"email" validate:"required,email"`
@@ -22,10 +20,10 @@ type TokenPair struct {
 }
 
 type UserResponse struct {
-	ID        string    `json:"id"`
-	Email     string    `json:"email"`
-	Role      string    `json:"role"`
-	CreatedAt time.Time `json:"created_at"`
+	ID        string `json:"id"`
+	Email     string `json:"email"`
+	Role      string `json:"role"`
+	CreatedAt string `json:"created_at"`
 }
 
 // Domain Model
@@ -34,7 +32,7 @@ type User struct {
 	Email        string
 	PasswordHash string
 	Role         string
-	Active       bool
+	Active       int64
 	CreatedAt    string
 	UpdatedAt    string
 }
@@ -44,5 +42,6 @@ type RefreshToken struct {
 	UserID    string
 	TokenHash string
 	ExpiresAt string
-	Revoked   bool
+	Revoked   int64
+	CreatedAt string
 }

@@ -93,6 +93,48 @@ func (r *Repository) Activate(ctx context.Context, id string) error {
 	})
 }
 
+func (r *Repository) FindAttributes(ctx context.Context, userID string) (map[string]string, error) {
+	rows, err := r.db.GetUserAttributes(ctx, userID)
+	if err != nil {
+		return nil, err
+	}
+	attrs := make(map[string]string, len(rows))
+	for _, row := range rows {
+		attrs[row.Key] = row.Value
+	}
+	return attrs, nil
+}
+
+func (r *Repository) SetAttributes(ctx context.Context, userID string, attrs map[string]string) error {
+	if err := r.db.DeleteAllUserAttributes(ctx, userID); err != nil {
+		return err
+	}
+	now := time.Now().Format(time.RFC3339)
+	for k, v := range attrs {
+		if err := r.db.SetUserAttribute(ctx, db.SetUserAttributeParams{
+			UserID:    userID,
+			Key:       k,
+			Value:     v,
+			CreatedAt: now,
+			UpdatedAt: now,
+		}); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+func (r *Repository) DeleteAttribute(ctx context.Context, userID, key string) error {
+	return r.db.DeleteUserAttribute(ctx, db.DeleteUserAttributeParams{
+		UserID: userID,
+		Key:    key,
+	})
+}
+
+func (r *Repository) DeleteAllAttributes(ctx context.Context, userID string) error {
+	return r.db.DeleteAllUserAttributes(ctx, userID)
+}
+
 func toUser(row db.User) *User {
 	return &User{
 		ID:        row.ID,

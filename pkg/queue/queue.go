@@ -64,10 +64,10 @@ func (q *Queue) migrate() error {
 	CREATE TABLE IF NOT EXISTS log_uploads (
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
 		local_file_path TEXT NOT NULL UNIQUE,
-		s3_path TEXT,
+		s3_path TEXT DEFAULT '',
 		status TEXT NOT NULL DEFAULT 'pending',
 		retry_count INTEGER DEFAULT 0,
-		last_error TEXT,
+		last_error TEXT DEFAULT '',
 		created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
 		updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
 		uploaded_at DATETIME
@@ -94,17 +94,21 @@ func (q *Queue) Enqueue(localFilePath string) (*LogUpload, error) {
 	var upload LogUpload
 	var uploadedAt sql.NullTime
 
+	var s3Path sql.NullString
+	var lastError sql.NullString
 	err := q.db.QueryRow(query, localFilePath).Scan(
 		&upload.ID,
 		&upload.LocalFilePath,
-		&upload.S3Path,
+		&s3Path,
 		&upload.Status,
 		&upload.RetryCount,
-		&upload.LastError,
+		&lastError,
 		&upload.CreatedAt,
 		&upload.UpdatedAt,
 		&uploadedAt,
 	)
+	upload.S3Path = s3Path.String
+	upload.LastError = lastError.String
 	if err != nil {
 		if err == sql.ErrNoRows {
 			// File already exists in queue, return existing
@@ -132,17 +136,21 @@ func (q *Queue) GetByPath(localFilePath string) (*LogUpload, error) {
 	var upload LogUpload
 	var uploadedAt sql.NullTime
 
+	var s3Path sql.NullString
+	var lastError sql.NullString
 	err := q.db.QueryRow(query, localFilePath).Scan(
 		&upload.ID,
 		&upload.LocalFilePath,
-		&upload.S3Path,
+		&s3Path,
 		&upload.Status,
 		&upload.RetryCount,
-		&upload.LastError,
+		&lastError,
 		&upload.CreatedAt,
 		&upload.UpdatedAt,
 		&uploadedAt,
 	)
+	upload.S3Path = s3Path.String
+	upload.LastError = lastError.String
 	if err != nil {
 		if err == sql.ErrNoRows {
 			return nil, nil
@@ -215,17 +223,21 @@ func (q *Queue) queryUploads(query string, args ...interface{}) ([]*LogUpload, e
 		var upload LogUpload
 		var uploadedAt sql.NullTime
 
+		var s3Path sql.NullString
+		var lastError sql.NullString
 		err := rows.Scan(
 			&upload.ID,
 			&upload.LocalFilePath,
-			&upload.S3Path,
+			&s3Path,
 			&upload.Status,
 			&upload.RetryCount,
-			&upload.LastError,
+			&lastError,
 			&upload.CreatedAt,
 			&upload.UpdatedAt,
 			&uploadedAt,
 		)
+		upload.S3Path = s3Path.String
+		upload.LastError = lastError.String
 		if err != nil {
 			return nil, fmt.Errorf("failed to scan row: %w", err)
 		}

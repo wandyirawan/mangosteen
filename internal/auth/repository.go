@@ -30,7 +30,7 @@ func (r *Repository) Create(ctx context.Context, user *User) error {
 		Email:        user.Email,
 		PasswordHash: user.PasswordHash,
 		Role:         user.Role,
-		Active:       true,
+		Active:       1,
 		CreatedAt:    user.CreatedAt,
 		UpdatedAt:    user.UpdatedAt,
 	})
@@ -50,9 +50,9 @@ func (r *Repository) CreateRefreshToken(ctx context.Context, userID, tokenHash s
 		ID:        id,
 		UserID:    userID,
 		TokenHash: tokenHash,
-		ExpiresAt: expiresAt,
-		Revoked:   false,
-		CreatedAt: time.Now(),
+		ExpiresAt: expiresAt.Format(time.RFC3339),
+		Revoked:   0,
+		CreatedAt: time.Now().Format(time.RFC3339),
 	})
 	return id, err
 }

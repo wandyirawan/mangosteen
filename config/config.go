@@ -1,4 +1,3 @@
-// Package config is package to handle config in environment variables
 package config
 
 import (
@@ -16,17 +15,18 @@ type Config struct {
 	Logger   LoggerConfig
 	Garage   GarageConfig
 	Worker   WorkerConfig
+	Admin    AdminConfig
 }
 
 type ServerConfig struct {
 	Port         string
-	Environment  string // development, production
+	Environment  string
 	ReadTimeout  int
 	WriteTimeout int
 }
 
 type DatabaseConfig struct {
-	Path string // sqlite file path
+	Path string
 }
 
 type CacheConfig struct {
@@ -46,13 +46,13 @@ type JWTConfig struct {
 }
 
 type LoggerConfig struct {
-	BasePath string // Directory for log files
-	Level    string // debug, info, warn, error
-	Console  bool   // Output to console
+	BasePath string
+	Level    string
+	Console  bool
 }
 
 type GarageConfig struct {
-	Endpoint  string // S3 API endpoint (e.g., garage:3900)
+	Endpoint  string
 	AccessKey string
 	SecretKey string
 	Bucket    string
@@ -61,13 +61,20 @@ type GarageConfig struct {
 }
 
 type WorkerConfig struct {
-	CheckInterval int    // Minutes between checks
-	MaxRetries    int    // Max retry attempts
-	UploadTimeout int    // Seconds for upload timeout
-	S3Prefix      string // Prefix for S3 keys
+	Enabled       bool
+	CheckInterval int
+	MaxRetries    int
+	UploadTimeout int
+	S3Prefix      string
+}
+
+type AdminConfig struct {
+	Email    string
+	Password string
 }
 
 func Load() *Config {
+	// Set defaults
 	viper.SetDefault("server.port", "3000")
 	viper.SetDefault("server.environment", "development")
 	viper.SetDefault("server.read_timeout", 10)
@@ -80,15 +87,13 @@ func Load() *Config {
 	viper.SetDefault("cache.db", 0)
 
 	viper.SetDefault("jwt.issuer", "mangosteen")
-	viper.SetDefault("jwt.access_ttl", 15) // 15 minutes
-	viper.SetDefault("jwt.refresh_ttl", 7) // 7 days
+	viper.SetDefault("jwt.access_ttl", 15)
+	viper.SetDefault("jwt.refresh_ttl", 7)
 
-	// Logger defaults
 	viper.SetDefault("logger.base_path", "./logs")
 	viper.SetDefault("logger.level", "info")
 	viper.SetDefault("logger.console", true)
 
-	// Garage/S3 defaults
 	viper.SetDefault("garage.endpoint", "localhost:3900")
 	viper.SetDefault("garage.access_key", "minioadmin")
 	viper.SetDefault("garage.secret_key", "minioadmin")
@@ -96,11 +101,14 @@ func Load() *Config {
 	viper.SetDefault("garage.region", "us-east-1")
 	viper.SetDefault("garage.use_ssl", false)
 
-	// Worker defaults
-	viper.SetDefault("worker.check_interval", 5) // minutes
+	viper.SetDefault("worker.enabled", true)
+	viper.SetDefault("worker.check_interval", 5)
 	viper.SetDefault("worker.max_retries", 3)
-	viper.SetDefault("worker.upload_timeout", 30) // seconds
+	viper.SetDefault("worker.upload_timeout", 30)
 	viper.SetDefault("worker.s3_prefix", "mangosteen/")
+
+	viper.SetDefault("admin.email", "")
+	viper.SetDefault("admin.password", "")
 
 	// Load from .env file if exists
 	viper.SetConfigFile(".env")
@@ -150,10 +158,15 @@ func Load() *Config {
 			UseSSL:    viper.GetBool("garage.use_ssl"),
 		},
 		Worker: WorkerConfig{
+			Enabled:       viper.GetBool("worker.enabled"),
 			CheckInterval: viper.GetInt("worker.check_interval"),
 			MaxRetries:    viper.GetInt("worker.max_retries"),
 			UploadTimeout: viper.GetInt("worker.upload_timeout"),
 			S3Prefix:      viper.GetString("worker.s3_prefix"),
+		},
+		Admin: AdminConfig{
+			Email:    viper.GetString("admin.email"),
+			Password: viper.GetString("admin.password"),
 		},
 	}
 }

@@ -67,6 +67,9 @@ func (h *Handler) RegisterAdminRoutes(app fiber.Router) {
 	app.Patch("/:id/role", h.ChangeRole)
 	app.Post("/:id/activate", h.ActivateUser)
 	app.Delete("/:id", h.DeleteUser)
+	app.Get("/:id/attributes", h.GetUserAttributes)
+	app.Put("/:id/attributes", h.SetUserAttributes)
+	app.Delete("/:id/attributes/:key", h.DeleteUserAttribute)
 }
 
 func (h *Handler) ListUsers(c *fiber.Ctx) error {
@@ -160,4 +163,86 @@ func (h *Handler) DeleteUser(c *fiber.Ctx) error {
 	}
 
 	return c.JSON(fiber.Map{"message": "user deleted"})
+}
+
+func (h *Handler) GetMyAttributes(c *fiber.Ctx) error {
+	userID := c.Locals("userID")
+	if userID == nil {
+		return c.Status(401).JSON(fiber.Map{"error": "unauthorized"})
+	}
+
+	attrs, err := h.service.GetAttributes(c.Context(), userID.(string))
+	if err != nil {
+		return c.Status(500).JSON(fiber.Map{"error": err.Error()})
+	}
+
+	return c.JSON(fiber.Map{"attributes": attrs})
+}
+
+func (h *Handler) SetMyAttributes(c *fiber.Ctx) error {
+	userID := c.Locals("userID")
+	if userID == nil {
+		return c.Status(401).JSON(fiber.Map{"error": "unauthorized"})
+	}
+
+	var dto SetAttributesDTO
+	if err := c.BodyParser(&dto); err != nil {
+		return c.Status(400).JSON(fiber.Map{"error": "invalid request body"})
+	}
+
+	if err := h.service.SetAttributes(c.Context(), userID.(string), dto.Attributes); err != nil {
+		return c.Status(500).JSON(fiber.Map{"error": err.Error()})
+	}
+
+	return c.JSON(fiber.Map{"message": "attributes updated"})
+}
+
+func (h *Handler) DeleteMyAttribute(c *fiber.Ctx) error {
+	userID := c.Locals("userID")
+	if userID == nil {
+		return c.Status(401).JSON(fiber.Map{"error": "unauthorized"})
+	}
+
+	key := c.Params("key")
+	if err := h.service.DeleteAttribute(c.Context(), userID.(string), key); err != nil {
+		return c.Status(500).JSON(fiber.Map{"error": err.Error()})
+	}
+
+	return c.JSON(fiber.Map{"message": "attribute deleted"})
+}
+
+func (h *Handler) GetUserAttributes(c *fiber.Ctx) error {
+	id := c.Params("id")
+	attrs, err := h.service.GetAttributes(c.Context(), id)
+	if err != nil {
+		return c.Status(500).JSON(fiber.Map{"error": err.Error()})
+	}
+
+	return c.JSON(fiber.Map{"attributes": attrs})
+}
+
+func (h *Handler) SetUserAttributes(c *fiber.Ctx) error {
+	id := c.Params("id")
+
+	var dto SetAttributesDTO
+	if err := c.BodyParser(&dto); err != nil {
+		return c.Status(400).JSON(fiber.Map{"error": "invalid request body"})
+	}
+
+	if err := h.service.SetAttributes(c.Context(), id, dto.Attributes); err != nil {
+		return c.Status(500).JSON(fiber.Map{"error": err.Error()})
+	}
+
+	return c.JSON(fiber.Map{"message": "attributes updated"})
+}
+
+func (h *Handler) DeleteUserAttribute(c *fiber.Ctx) error {
+	id := c.Params("id")
+	key := c.Params("key")
+
+	if err := h.service.DeleteAttribute(c.Context(), id, key); err != nil {
+		return c.Status(500).JSON(fiber.Map{"error": err.Error()})
+	}
+
+	return c.JSON(fiber.Map{"message": "attribute deleted"})
 }

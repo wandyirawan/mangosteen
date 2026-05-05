@@ -1,0 +1,43 @@
+{{define "layout"}}
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.PageTitle}} - Mangosteen</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2.0.6/css/pico.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+        body > header { padding: 0.5rem 2rem; border-bottom: 1px solid var(--pico-muted-border-color); }
+        body > header nav { display: flex; justify-content: space-between; align-items: center; }
+        body > main { padding: 2rem; max-width: 1200px; margin: 0 auto; }
+        .badge { font-size: 0.8rem; padding: 0.1rem 0.5rem; border-radius: 4px; }
+        .badge-admin { background: var(--pico-primary); color: var(--pico-primary-inverse); }
+        .badge-user { background: var(--pico-secondary); color: var(--pico-secondary-inverse); }
+        .tabs { display: flex; gap: 0; border-bottom: 2px solid var(--pico-muted-border-color); margin-bottom: 1.5rem; }
+        .tabs button { border: none; background: none; padding: 0.5rem 1.5rem; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; font-weight: 500; }
+        .tabs button.active { border-bottom-color: var(--pico-primary); color: var(--pico-primary); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        table.attr-table td { vertical-align: middle; }
+        .attr-row td { padding: 0.3rem 0.5rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <strong><a href="/admin/users" style="text-decoration:none">Mangosteen Admin</a></strong>
+            <ul>
+                <li><a href="/admin/users">Users</a></li>
+                <li><a href="/admin/logout" class="secondary">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {{.Content}}
+    </main>
+</body>
+</html>
+{{end}}

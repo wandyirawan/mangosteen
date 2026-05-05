@@ -79,6 +79,31 @@ func (q *Queries) CreateUser(ctx context.Context, arg CreateUserParams) error {
 	return err
 }
 
+const deleteAllUserAttributes = `-- name: DeleteAllUserAttributes :exec
+DELETE FROM user_attributes
+WHERE user_id = ?
+`
+
+func (q *Queries) DeleteAllUserAttributes(ctx context.Context, userID string) error {
+	_, err := q.db.ExecContext(ctx, deleteAllUserAttributes, userID)
+	return err
+}
+
+const deleteUserAttribute = `-- name: DeleteUserAttribute :exec
+DELETE FROM user_attributes
+WHERE user_id = ? AND key = ?
+`
+
+type DeleteUserAttributeParams struct {
+	UserID string `json:"user_id"`
+	Key    string `json:"key"`
+}
+
+func (q *Queries) DeleteUserAttribute(ctx context.Context, arg DeleteUserAttributeParams) error {
+	_, err := q.db.ExecContext(ctx, deleteUserAttribute, arg.UserID, arg.Key)
+	return err
+}
+
 const getRefreshToken = `-- name: GetRefreshToken :one
 SELECT id, user_id, token_hash, expires_at, revoked, created_at
 FROM refresh_tokens
@@ -117,6 +142,41 @@ func (q *Queries) GetRefreshTokenByHash(ctx context.Context, tokenHash string) (
 		&i.CreatedAt,
 	)
 	return i, err
+}
+
+const getUserAttributes = `-- name: GetUserAttributes :many
+SELECT user_id, key, value, created_at, updated_at
+FROM user_attributes
+WHERE user_id = ?
+`
+
+func (q *Queries) GetUserAttributes(ctx context.Context, userID string) ([]UserAttribute, error) {
+	rows, err := q.db.QueryContext(ctx, getUserAttributes, userID)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []UserAttribute
+	for rows.Next() {
+		var i UserAttribute
+		if err := rows.Scan(
+			&i.UserID,
+			&i.Key,
+			&i.Value,
+			&i.CreatedAt,
+			&i.UpdatedAt,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
 }
 
 const getUserByEmail = `-- name: GetUserByEmail :one
@@ -263,6 +323,30 @@ WHERE id = ?
 
 func (q *Queries) RevokeRefreshToken(ctx context.Context, id string) error {
 	_, err := q.db.ExecContext(ctx, revokeRefreshToken, id)
+	return err
+}
+
+const setUserAttribute = `-- name: SetUserAttribute :exec
+INSERT OR REPLACE INTO user_attributes (user_id, key, value, created_at, updated_at)
+VALUES (?, ?, ?, ?, ?)
+`
+
+type SetUserAttributeParams struct {
+	UserID    string `json:"user_id"`
+	Key       string `json:"key"`
+	Value     string `json:"value"`
+	CreatedAt string `json:"created_at"`
+	UpdatedAt string `json:"updated_at"`
+}
+
+func (q *Queries) SetUserAttribute(ctx context.Context, arg SetUserAttributeParams) error {
+	_, err := q.db.ExecContext(ctx, setUserAttribute,
+		arg.UserID,
+		arg.Key,
+		arg.Value,
+		arg.CreatedAt,
+		arg.UpdatedAt,
+	)
 	return err
 }
 

@@ -40,7 +40,7 @@ func (s *Service) SignIn(ctx context.Context, credentials LoginDTO) (*TokenPair,
 		return nil, ErrInvalidCredentials
 	}
 
-	if !user.Active {
+	if user.Active != 1 {
 		return nil, errors.New("account is deactivated")
 	}
 
@@ -72,9 +72,9 @@ func (s *Service) SignUp(ctx context.Context, data RegisterDTO) (*UserResponse, 
 		Email:        data.Email,
 		PasswordHash: hash,
 		Role:         "user",
-		Active:       true,
-		CreatedAt:    now,
-		UpdatedAt:    now,
+		Active:       1,
+		CreatedAt:    now.Format(time.RFC3339),
+		UpdatedAt:    now.Format(time.RFC3339),
 	}
 
 	if err := s.repo.Create(ctx, user); err != nil {
@@ -107,12 +107,12 @@ func (s *Service) RefreshToken(ctx context.Context, refreshToken string) (*Token
 		return nil, ErrInvalidCredentials
 	}
 
-	if token.Revoked {
+	if token.Revoked != 0 {
 		return nil, ErrTokenRevoked
 	}
 
 	// Check expiration
-	expiresAt, err := time.Parse(time.RFC3339, token.ExpiresAt.Format(time.RFC3339))
+	expiresAt, err := time.Parse(time.RFC3339, token.ExpiresAt)
 	if err != nil {
 		return nil, ErrTokenExpired
 	}
@@ -125,7 +125,7 @@ func (s *Service) RefreshToken(ctx context.Context, refreshToken string) (*Token
 		return nil, ErrUserNotFound
 	}
 
-	if !user.Active {
+	if user.Active != 1 {
 		return nil, errors.New("account is deactivated")
 	}
 

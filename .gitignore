@@ -2,7 +2,9 @@
 *.log
 data/
 logs/
-.env
-.env.example
+build/
+tmp/
 server
 certs/
+.env
+.aider*

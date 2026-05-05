@@ -61,3 +61,20 @@ WHERE user_id = ?;-- name: GetRefreshTokenByHash :one
 SELECT id, user_id, token_hash, expires_at, revoked, created_at
 FROM refresh_tokens
 WHERE token_hash = ? AND revoked = 0;
+
+-- name: GetUserAttributes :many
+SELECT user_id, key, value, created_at, updated_at
+FROM user_attributes
+WHERE user_id = ?;
+
+-- name: SetUserAttribute :exec
+INSERT OR REPLACE INTO user_attributes (user_id, key, value, created_at, updated_at)
+VALUES (?, ?, ?, ?, ?);
+
+-- name: DeleteUserAttribute :exec
+DELETE FROM user_attributes
+WHERE user_id = ? AND key = ?;
+
+-- name: DeleteAllUserAttributes :exec
+DELETE FROM user_attributes
+WHERE user_id = ?;

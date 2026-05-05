@@ -1,0 +1,25 @@
+root = "."
+tmp_dir = "tmp"
+
+[build]
+  cmd = "go build -o ./build/mangosteen ./cmd/server"
+  bin = "./build/mangosteen"
+  delay = 1000
+  exclude_dir = ["build", "tmp", ".git", "vendor"]
+  exclude_ext = ["md", "log", "sqlite3", "db"]
+  include_ext = ["go", "tpl", "templates", "sql", "gohtml"]
+  include_dir = ["cmd", "internal", "pkg", "templates", "crown/templates", "sql"]
+  follow_symlink = false
+
+[watch]
+  dirs = ["cmd", "internal", "pkg", "templates", "crown/templates", "sql"]
+  ignore_dir = ["build", "tmp", ".git", "vendor"]
+  ignore_ext = ["md", "log", "sqlite3", "db"]
+
+[log]
+  level = "info"
+  time = false
+
+[misc]
+  clean_on_exit = false
+  port = 4000

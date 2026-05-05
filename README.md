@@ -46,16 +46,20 @@ Keycloak is powerful but **overwhelming** for small projects:
 cmd/server/      # Entry point
 config/        # Configuration
 sql/           # Migrations & queries
-internal/     # Business logic (no subdirs)
-├── auth/      # JWT, login, register, refresh
-├── user/      # User CRUD
-├── health/    # Health checks
-├── admin/     # Admin operations
-├── middleware/
-└── db/       # sqlc generated
-pkg/          # Shared packages
-└── cache/
-└── worker/    # Background jobs
+internal/      # Business logic
+├── auth/       # JWT, login, register, refresh
+├── user/       # User CRUD + attributes
+├── crown/      # Admin console (PicoCSS + Alpine.js)
+├── health/     # Health checks
+├── admin/      # Admin API operations
+├── middleware/  # Auth + RBAC
+└── db/        # sqlc generated
+pkg/           # Shared packages
+├── cache/      # Valkey/Redis
+├── crypto/     # Password hashing
+├── logger/     # Structured logging
+├── queue/      # Upload queue
+└── worker/     # Background jobs
 ```
 
 **Flat folder** = idiomatic Go. No complex layer hierarchy.
@@ -65,9 +69,13 @@ pkg/          # Shared packages
 - ✅ JWT RS256 with JWKS endpoint
 - ✅ Refresh token rotation
 - ✅ RBAC (admin/user roles)
+- ✅ User attributes (key-value, like Keycloak)
+- ✅ Admin console (PicoCSS + Alpine.js)
 - ✅ Health checks (live/ready/metrics)
-- ✅ Log upload to S3/Garage
+- ✅ Log upload to S3/Garage (optional)
 - ✅ Graceful shutdown
+- ✅ Auto-reload dev mode (air)
+- ✅ Superadmin bootstrap from env
 
 ## Quick Start
 
@@ -83,9 +91,49 @@ chmod +x generate-certs.sh && ./generate-certs.sh
 cp .env.example .env
 # Edit .env with JWT_PRIVATE_KEY & JWT_PUBLIC_KEY
 
-# Run
-go run cmd/server/main.go
+# Build and run
+make run
+# or: go run cmd/server/main.go
 ```
+
+## Superadmin Bootstrap
+
+Configure `.env` to auto-create admin user on first start:
+
+```
+ADMIN_EMAIL=admin@example.com
+ADMIN_PASSWORD=admin123
+```
+
+If admin already exists, skip. Login at `/admin/login`.
+
+## Development
+
+```bash
+# Install air (auto-reload)
+go install github.com/air-verse/air/cmd/air@latest
+
+# Run with live reload
+make dev
+
+# Build binary only
+make build
+```
+
+See `.air.toml` for config.
+
+## Admin Console
+
+```
+GET    /admin/login         # Login page
+POST   /admin/login         # Sign in
+GET    /admin/logout        # Sign out
+GET    /admin/users         # Users table (auth required)
+GET    /admin/users/:id     # User detail + tabs (auth required)
+```
+
+**User Detail tabs:** Details (email/role/active) + Attributes (key-value CRUD).
+
 
 ## API Endpoints
 
@@ -107,6 +155,10 @@ GET    /api/users/me
 PATCH  /api/users/me
 DELETE /api/users/me
 POST   /api/auth/logout
+
+GET    /api/users/me/attributes
+PUT    /api/users/me/attributes
+DELETE /api/users/me/attributes/:key
 ```
 
 **Admin only:**
@@ -118,6 +170,10 @@ PATCH  /api/users/:id
 PATCH  /api/users/:id/role
 POST   /api/users/:id/activate
 DELETE /api/users/:id
+
+GET    /api/users/:id/attributes
+PUT    /api/users/:id/attributes
+DELETE /api/users/:id/attributes/:key
 
 GET    /api/admin/logs/stats
 POST   /api/admin/logs/retry

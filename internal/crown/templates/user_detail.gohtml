@@ -1,0 +1,143 @@
+{{define "user_detail_content"}}
+<div id="user-detail" data-attrs='{{.User.Attributes | safeHTMLAttr}}' data-email='{{.User.Email | safeHTMLAttr}}' data-role='{{.User.Role}}' data-active='{{.User.Active}}'>
+    <h1>{{.User.Email}}</h1>
+    <p>
+        <span class="badge badge-{{.User.Role}}">{{.User.Role}}</span>
+        <small style="margin-left:1rem;">ID: {{.User.ID}}</small>
+    </p>
+
+    <nav>
+        <ul>
+            <li><a href="#" id="tab-details-link" class="active" onclick="switchTab('details'); return false;">Details</a></li>
+            <li><a href="#" id="tab-attributes-link" onclick="switchTab('attributes'); return false;">Attributes</a></li>
+        </ul>
+    </nav>
+
+    <div id="tab-details" class="tab-content active">
+        <article>
+            <label>Email
+                <input type="email" id="email-input" value="{{.User.Email}}">
+            </label>
+            <label>Role>
+                <select id="role-input">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </label>
+            <label>
+                <input type="checkbox" id="active-input" {{if .User.Active}}checked{{end}}>
+                Active
+            </label>
+            <button onclick="saveDetails()">Save Changes</button>
+            <small id="saved-msg" style="color: var(--pico-ins-color); margin-left: 1rem; display:none;">Saved!</small>
+        </article>
+    </div>
+
+    <div id="tab-attributes" class="tab-content">
+        <article>
+            <fieldset style="margin-top:1rem;">
+                <legend>Attributes</legend>
+                <div id="attr-rows">
+                    {{range $key, $val := .User.Attributes}}
+                    <div class="attr-row" style="display:flex; gap:0.5rem; margin-bottom:0.5rem; align-items:end;">
+                        <label>Key <input type="text" value="{{$key}}" class="attr-key"></label>
+                        <label>Value <input type="text" value="{{$val}}" class="attr-val"></label>
+                        <button class="outline secondary" onclick="this.parentElement.remove()" style="height:fit-content;">Del</button>
+                    </div>
+                    {{end}}
+                </div>
+                <div style="display:flex; justify-content:flex-end; margin-top:0.5rem;">
+                    <button onclick="addRow()">Add</button>
+                </div>
+            </fieldset>
+
+            <button onclick="saveAttributes()" style="margin-top:1rem;">Save Attributes</button>
+            <small id="attr-saved-msg" style="color: var(--pico-ins-color); margin-left: 1rem; display:none;">Saved!</small>
+        </article>
+    </div>
+</div>
+
+<script>
+function switchTab(tab) {
+    document.getElementById('tab-details-link').classList.remove('active');
+    document.getElementById('tab-attributes-link').classList.remove('active');
+    if (tab === 'details') {
+        document.getElementById('tab-details-link').classList.add('active');
+    } else {
+        document.getElementById('tab-attributes-link').classList.add('active');
+    }
+    document.getElementById('tab-details').classList.remove('active');
+    document.getElementById('tab-attributes').classList.remove('active');
+    document.getElementById('tab-' + tab).classList.add('active');
+}
+
+function addRow() {
+    var container = document.getElementById('attr-rows');
+    var div = document.createElement('div');
+    div.className = 'attr-row';
+    div.style.cssText = 'display:flex; gap:0.5rem; margin-bottom:0.5rem; align-items:end;';
+    div.innerHTML = '<label>Key <input type="text" class="attr-key" placeholder="key"></label>' +
+        '<label>Value <input type="text" class="attr-val" placeholder="value"></label>' +
+        '<button class="outline secondary" onclick="this.parentElement.remove()" style="height:fit-content;">Del</button>';
+    container.appendChild(div);
+}
+
+async function saveDetails() {
+    var email = document.getElementById('email-input').value;
+    var role = document.getElementById('role-input').value;
+    var active = document.getElementById('active-input').checked;
+    var resp = await fetch('/api/users/{{.User.ID}}', {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + getCookie('access_token')
+        },
+        body: JSON.stringify({ email: email, role: role, active: active })
+    });
+    if (resp.ok) {
+        document.getElementById('saved-msg').style.display = 'inline';
+        setTimeout(function() { document.getElementById('saved-msg').style.display = 'none'; }, 3000);
+    } else {
+        alert('Failed to save details: ' + resp.status);
+    }
+}
+
+async function saveAttributes() {
+    var attrs = {};
+    var rows = document.querySelectorAll('#attr-rows .attr-row');
+    rows.forEach(function(row) {
+        var key = row.querySelector('.attr-key').value.trim();
+        var val = row.querySelector('.attr-val').value.trim();
+        if (key) attrs[key] = val;
+    });
+    var resp = await fetch('/api/users/{{.User.ID}}/attributes', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + getCookie('access_token')
+        },
+        body: JSON.stringify({ attributes: attrs })
+    });
+    if (resp.ok) {
+        location.reload();
+    } else {
+        alert('Failed to save attributes: ' + resp.status);
+    }
+}
+
+function getCookie(name) {
+    var v = document.cookie.match(new RegExp('(^|;)\\s*' + name + '=([^;]*)'));
+    return v ? v[2] : '';
+}
+
+// Add default empty row if no attributes
+if (document.querySelectorAll('#attr-rows .attr-row').length === 0) {
+    addRow();
+}
+</script>
+
+<style>
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+</style>
+{{end}}
