@@ -9,3 +9,6 @@ certs/
 .env
 .aider*
 .swarm/
+coverage.out
+coverage.html
+tools/
