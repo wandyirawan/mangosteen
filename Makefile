@@ -1,4 +1,4 @@
-.PHONY: build run dev clean
+.PHONY: build run dev clean test test-cover
 
 BINARY_NAME=mangosteen
 BUILD_DIR=build
@@ -15,3 +15,10 @@ dev:
 
 clean:
 	rm -rf $(BUILD_DIR)
+
+test:
+	go test -v -count=1 ./...
+
+test-cover:
+	go test -v -count=1 -coverprofile=coverage.out ./...
+	go tool cover -html=coverage.out -o coverage.html

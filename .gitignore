@@ -8,3 +8,4 @@ server
 certs/
 .env
 .aider*
+.swarm/

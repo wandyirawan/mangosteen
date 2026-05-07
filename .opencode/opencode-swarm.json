@@ -1,0 +1,43 @@
+{
+  "agents": {
+    "coder": {
+      "model": "opencode/deepseek-v4-pro"
+    },
+    "reviewer": {
+      "model": "opencode/deepseek-v4-pro"
+    },
+    "test_engineer": {
+      "model": "opencode/deepseek-v4-pro"
+    },
+    "critic": {
+      "model": "opencode/deepseek-v4-pro"
+    },
+    "critic_sounding_board": {
+      "model": "opencode/deepseek-v4-pro"
+    },
+    "sme": {
+      "model": "opencode/deepseek-v4-pro"
+    },
+    "explorer": {
+      "model": "opencode/deepseek-v4-pro"
+    },
+    "docs": {
+      "model": "opencode/deepseek-v4-pro"
+    },
+    "critic_drift_verifier": {
+      "model": "opencode/deepseek-v4-pro"
+    },
+    "critic_hallucination_verifier": {
+      "model": "opencode/deepseek-v4-pro"
+    },
+    "critic_oversight": {
+      "model": "opencode/deepseek-v4-pro"
+    },
+    "curator_init": {
+      "model": "opencode/deepseek-v4-pro"
+    },
+    "curator_phase": {
+      "model": "opencode/deepseek-v4-pro"
+    }
+  }
+}
