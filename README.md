@@ -30,6 +30,18 @@ Keycloak is powerful but **overwhelming** for small projects:
 - Microservices needing auth
 - Projects that outgrew JWT but don't need Keycloak
 - Teams wanting simple IAM without ops overhead
+- **Headless CMS** (e.g., Granate) needing external auth provider
+
+## Integrations
+
+Mangosteen is designed to be used as a lightweight auth provider for other services:
+
+### Granate CMS Integration
+Granate (Rust headless CMS) uses Mangosteen for all authentication:
+- JWT validation via JWKS endpoint (`/api/.well-known/jwks.json`)
+- Login/register proxy to Mangosteen APIs
+- User info endpoint delegation
+- See: https://github.com/wandyirawan/granate
 
 ## Stack
 
