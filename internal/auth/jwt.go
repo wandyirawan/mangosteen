@@ -2,11 +2,14 @@ package auth
 
 import (
 	"crypto/rsa"
+	"crypto/x509"
 	"encoding/base64"
 	"encoding/pem"
 	"errors"
 	"fmt"
 	"math/big"
+	"os"
+	"strings"
 	"sync"
 	"time"
 
@@ -47,13 +50,32 @@ func NewJWTManager(cfg *config.JWTConfig) (*JWTManager, error) {
 		issuer: cfg.Issuer,
 	}
 
+	// Get PEM content — try file path first, then raw PEM
+	privPEM := cfg.PrivateKeyPEM
+	pubPEM := cfg.PublicKeyPEM
+
+	if privPEM != "" && strings.HasSuffix(privPEM, ".pem") {
+		data, err := os.ReadFile(privPEM)
+		if err != nil {
+			return nil, fmt.Errorf("read private key file: %w", err)
+		}
+		privPEM = string(data)
+	}
+	if pubPEM != "" && strings.HasSuffix(pubPEM, ".pem") {
+		data, err := os.ReadFile(pubPEM)
+		if err != nil {
+			return nil, fmt.Errorf("read public key file: %w", err)
+		}
+		pubPEM = string(data)
+	}
+
 	// Parse initial keys
-	if cfg.PrivateKeyPEM != "" && cfg.PublicKeyPEM != "" {
-		privKey, err := parsePrivateKey(cfg.PrivateKeyPEM)
+	if privPEM != "" && pubPEM != "" {
+		privKey, err := parsePrivateKey(privPEM)
 		if err != nil {
 			return nil, err
 		}
-		pubKey, err := parsePublicKey(cfg.PublicKeyPEM)
+		pubKey, err := parsePublicKey(pubPEM)
 		if err != nil {
 			return nil, err
 		}
@@ -73,18 +95,48 @@ func NewJWTManager(cfg *config.JWTConfig) (*JWTManager, error) {
 
 func parsePrivateKey(pemKey string) (*rsa.PrivateKey, error) {
 	block, _ := pem.Decode([]byte(pemKey))
-	if block == nil || block.Type != "RSA PRIVATE KEY" {
-		return nil, errors.New("invalid private key")
+	if block == nil {
+		return nil, errors.New("invalid private key PEM")
 	}
-	return jwt.ParseRSAPrivateKeyFromPEM([]byte(pemKey))
+	// PKCS#1: "RSA PRIVATE KEY"
+	if block.Type == "RSA PRIVATE KEY" {
+		return jwt.ParseRSAPrivateKeyFromPEM([]byte(pemKey))
+	}
+	// PKCS#8: "PRIVATE KEY"
+	if block.Type == "PRIVATE KEY" {
+		key, err := x509.ParsePKCS8PrivateKey(block.Bytes)
+		if err != nil {
+			return nil, err
+		}
+		rsaKey, ok := key.(*rsa.PrivateKey)
+		if !ok {
+			return nil, errors.New("not an RSA private key")
+		}
+		return rsaKey, nil
+	}
+	return nil, fmt.Errorf("unsupported key type: %s", block.Type)
 }
 
 func parsePublicKey(pemKey string) (*rsa.PublicKey, error) {
 	block, _ := pem.Decode([]byte(pemKey))
-	if block == nil || block.Type != "PUBLIC KEY" {
-		return nil, errors.New("invalid public key")
+	if block == nil {
+		return nil, errors.New("invalid public key PEM")
 	}
-	return jwt.ParseRSAPublicKeyFromPEM([]byte(pemKey))
+	// PKCS#1: "RSA PUBLIC KEY"
+	if block.Type == "RSA PUBLIC KEY" {
+		return jwt.ParseRSAPublicKeyFromPEM([]byte(pemKey))
+	}
+	// PKIX/SPKI: "PUBLIC KEY"
+	if block.Type == "PUBLIC KEY" {
+		key, err := x509.ParsePKIXPublicKey(block.Bytes)
+		if err != nil {
+			return nil, err
+		}
+		if rsaKey, ok := key.(*rsa.PublicKey); ok {
+			return rsaKey, nil
+		}
+	}
+	return nil, fmt.Errorf("unsupported public key type: %s", block.Type)
 }
 
 func (j *JWTManager) IssueAccess(userID, email, role string) (string, error) {
@@ -96,6 +148,7 @@ func (j *JWTManager) IssueAccess(userID, email, role string) (string, error) {
 		"sub":   userID,
 		"email": email,
 		"role":  role,
+		"aud":   "mangosteen",
 		"iat":   now.Unix(),
 		"exp":   now.Add(15 * time.Minute).Unix(),
 		"jti":   uuid.New().String(),

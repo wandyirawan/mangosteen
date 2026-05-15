@@ -1,0 +1,17 @@
+{"level":"info","count":1,"time":"2026-05-01T10:04:51+07:00","message":"Processing upload batch"}
+{"level":"info","file":"logs/app-2026-05-01-09.log","time":"2026-05-01T10:04:51+07:00","message":"Log file rotated, adding to upload queue"}
+{"level":"error","error":"s3 upload failed: Put \"http://localhost:3900/logs/mangosteen/app-2026-05-01-08.log\": dial tcp [::1]:3900: connect: connection refused","file":"logs/app-2026-05-01-08.log","time":"2026-05-01T10:04:55+07:00","message":"Upload failed"}
+{"level":"info","count":2,"time":"2026-05-01T10:09:51+07:00","message":"Processing upload batch"}
+{"level":"error","error":"s3 upload failed: Put \"http://localhost:3900/logs/mangosteen/app-2026-05-01-08.log\": dial tcp [::1]:3900: connect: connection refused","file":"logs/app-2026-05-01-08.log","time":"2026-05-01T10:09:55+07:00","message":"Upload failed"}
+{"level":"info","count":2,"time":"2026-05-01T10:14:51+07:00","message":"Processing upload batch"}
+{"level":"error","error":"s3 upload failed: Put \"http://localhost:3900/logs/mangosteen/app-2026-05-01-08.log\": dial tcp [::1]:3900: connect: connection refused","file":"logs/app-2026-05-01-08.log","time":"2026-05-01T10:14:56+07:00","message":"Upload failed"}
+{"level":"error","error":"Request Timeout","time":"2026-05-01T10:16:16+07:00","message":"HTTP error"}
+{"level":"info","count":1,"time":"2026-05-01T10:19:51+07:00","message":"Processing upload batch"}
+{"level":"info","count":1,"time":"2026-05-01T10:24:51+07:00","message":"Processing upload batch"}
+{"level":"info","count":1,"time":"2026-05-01T10:29:51+07:00","message":"Processing upload batch"}
+{"level":"info","count":1,"time":"2026-05-01T10:34:51+07:00","message":"Processing upload batch"}
+{"level":"info","count":1,"time":"2026-05-01T10:39:51+07:00","message":"Processing upload batch"}
+{"level":"info","count":1,"time":"2026-05-01T10:44:51+07:00","message":"Processing upload batch"}
+{"level":"info","count":1,"time":"2026-05-01T10:49:51+07:00","message":"Processing upload batch"}
+{"level":"info","count":1,"time":"2026-05-01T10:54:51+07:00","message":"Processing upload batch"}
+{"level":"info","count":1,"time":"2026-05-01T10:59:51+07:00","message":"Processing upload batch"}

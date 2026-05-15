@@ -1,0 +1,42 @@
+{"level":"info","method":"GET","path":"/health","status":200,"duration":0.007364,"ip":"127.0.0.1","time":"2026-05-15T17:18:25+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /health","time":"2026-05-15T17:18:25+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/api/health","status":200,"duration":0.006121,"ip":"127.0.0.1","time":"2026-05-15T17:18:33+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /api/health","time":"2026-05-15T17:18:33+07:00","message":"HTTP error"}
+{"level":"info","method":"POST","path":"/api/auth/register","status":201,"duration":40.43192,"ip":"127.0.0.1","time":"2026-05-15T17:18:33+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":200,"duration":90.773039,"ip":"127.0.0.1","time":"2026-05-15T17:19:20+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":200,"duration":82.451026,"ip":"127.0.0.1","time":"2026-05-15T17:20:08+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":200,"duration":81.483747,"ip":"127.0.0.1","time":"2026-05-15T17:20:24+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/api/.well-known/jwks.json","status":200,"duration":0.067889,"ip":"127.0.0.1","time":"2026-05-15T17:20:24+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":200,"duration":82.172156,"ip":"127.0.0.1","time":"2026-05-15T17:20:36+07:00","message":"HTTP request"}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-15T17:22:56+07:00","message":"Starting server"}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-15T17:23:09+07:00","message":"Starting server"}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-15T17:23:21+07:00","message":"Starting server"}
+{"level":"info","time":"2026-05-15T17:23:26+07:00","message":"Shutting down gracefully..."}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-15T17:23:28+07:00","message":"Starting server"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":200,"duration":86.300568,"ip":"127.0.0.1","time":"2026-05-15T17:24:29+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":200,"duration":78.084083,"ip":"127.0.0.1","time":"2026-05-15T17:24:41+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/api/.well-known/jwks.json","status":200,"duration":0.106241,"ip":"127.0.0.1","time":"2026-05-15T17:24:41+07:00","message":"HTTP request"}
+{"level":"fatal","error":"invalid private key","time":"2026-05-15T17:25:16+07:00","message":"Failed to initialize JWT manager"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":200,"duration":86.454856,"ip":"127.0.0.1","time":"2026-05-15T17:25:31+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/api/.well-known/jwks.json","status":200,"duration":0.006593,"ip":"127.0.0.1","time":"2026-05-15T17:25:31+07:00","message":"HTTP request"}
+{"level":"fatal","error":"invalid private key","time":"2026-05-15T17:26:03+07:00","message":"Failed to initialize JWT manager"}
+{"level":"fatal","error":"invalid private key","time":"2026-05-15T17:26:16+07:00","message":"Failed to initialize JWT manager"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":200,"duration":79.986617,"ip":"127.0.0.1","time":"2026-05-15T17:26:36+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/api/.well-known/jwks.json","status":200,"duration":0.006633,"ip":"127.0.0.1","time":"2026-05-15T17:26:36+07:00","message":"HTTP request"}
+{"level":"fatal","error":"invalid private key","time":"2026-05-15T17:27:02+07:00","message":"Failed to initialize JWT manager"}
+{"level":"fatal","error":"invalid private key","time":"2026-05-15T17:27:18+07:00","message":"Failed to initialize JWT manager"}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-15T17:27:34+07:00","message":"Starting server"}
+{"level":"fatal","error":"failed to listen: listen tcp4 :4000: bind: address already in use","time":"2026-05-15T17:27:34+07:00","message":"Server failed to start"}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-15T17:27:41+07:00","message":"Starting server"}
+{"level":"fatal","error":"failed to listen: listen tcp4 :4000: bind: address already in use","time":"2026-05-15T17:27:41+07:00","message":"Server failed to start"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":200,"duration":86.235098,"ip":"127.0.0.1","time":"2026-05-15T17:28:19+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/api/.well-known/jwks.json","status":200,"duration":0.006953,"ip":"127.0.0.1","time":"2026-05-15T17:28:19+07:00","message":"HTTP request"}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-15T17:28:44+07:00","message":"Starting server"}
+{"level":"info","method":"GET","path":"/api/.well-known/jwks.json","status":200,"duration":0.267797,"ip":"127.0.0.1","time":"2026-05-15T17:30:09+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":200,"duration":81.166675,"ip":"127.0.0.1","time":"2026-05-15T17:30:19+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":200,"duration":84.809823,"ip":"127.0.0.1","time":"2026-05-15T17:30:27+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":200,"duration":83.379661,"ip":"127.0.0.1","time":"2026-05-15T17:31:30+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/api/.well-known/jwks.json","status":200,"duration":0.012854,"ip":"127.0.0.1","time":"2026-05-15T17:31:30+07:00","message":"HTTP request"}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-15T17:32:07+07:00","message":"Starting server"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":200,"duration":80.948241,"ip":"127.0.0.1","time":"2026-05-15T17:32:32+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/api/.well-known/jwks.json","status":200,"duration":0.041117,"ip":"127.0.0.1","time":"2026-05-15T17:32:32+07:00","message":"HTTP request"}

@@ -1,0 +1,2 @@
+{"level":"info","method":"GET","path":"/api/.well-known/jwks.json","status":200,"duration":0.006522,"ip":"127.0.0.1","time":"2026-05-11T21:07:37+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/api/.well-known/jwks.json","status":200,"duration":0.006171,"ip":"127.0.0.1","time":"2026-05-11T21:09:22+07:00","message":"HTTP request"}

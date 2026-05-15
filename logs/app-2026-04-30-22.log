@@ -1,0 +1,61 @@
+{"level":"info","method":"GET","path":"/admin/login","status":200,"duration":0.020869,"ip":"127.0.0.1","time":"2026-04-30T22:04:24+07:00","message":"HTTP request"}
+{"level":"info","file":"logs/app-2026-04-30-21.log","time":"2026-04-30T22:04:24+07:00","message":"Log file rotated, adding to upload queue"}
+{"level":"error","error":"html/template: \"layout\" is undefined","time":"2026-04-30T22:04:24+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.003125,"ip":"127.0.0.1","time":"2026-04-30T22:04:24+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-30T22:04:24+07:00","message":"HTTP error"}
+{"level":"info","time":"2026-04-30T22:06:11+07:00","message":"Shutting down gracefully..."}
+{"level":"info","time":"2026-04-30T22:06:11+07:00","message":"Stopping upload worker"}
+{"level":"info","endpoint":"localhost:3900","bucket":"logs","interval":300000,"time":"2026-04-30T22:06:14+07:00","message":"Starting upload worker"}
+{"level":"info","count":1,"time":"2026-04-30T22:06:14+07:00","message":"Processing upload batch"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-30T22:06:14+07:00","message":"Starting server"}
+{"level":"info","method":"GET","path":"/admin/login","status":200,"duration":0.010119,"ip":"127.0.0.1","time":"2026-04-30T22:06:19+07:00","message":"HTTP request"}
+{"level":"error","error":"html/template: \"layout\" is undefined","time":"2026-04-30T22:06:19+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.022642,"ip":"127.0.0.1","time":"2026-04-30T22:06:19+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-30T22:06:19+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/admin/login","status":200,"duration":0.011411,"ip":"127.0.0.1","time":"2026-04-30T22:06:22+07:00","message":"HTTP request"}
+{"level":"error","error":"html/template: \"layout\" is undefined","time":"2026-04-30T22:06:22+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.004038,"ip":"127.0.0.1","time":"2026-04-30T22:06:22+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-30T22:06:22+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/admin/login","status":200,"duration":0.008235,"ip":"127.0.0.1","time":"2026-04-30T22:06:22+07:00","message":"HTTP request"}
+{"level":"error","error":"html/template: \"layout\" is undefined","time":"2026-04-30T22:06:22+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.003957,"ip":"127.0.0.1","time":"2026-04-30T22:06:22+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-30T22:06:22+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/admin/login","status":200,"duration":0.008737,"ip":"127.0.0.1","time":"2026-04-30T22:06:22+07:00","message":"HTTP request"}
+{"level":"error","error":"html/template: \"layout\" is undefined","time":"2026-04-30T22:06:22+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.00536,"ip":"127.0.0.1","time":"2026-04-30T22:06:22+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-30T22:06:22+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/admin/login","status":200,"duration":0.008746,"ip":"127.0.0.1","time":"2026-04-30T22:06:22+07:00","message":"HTTP request"}
+{"level":"error","error":"html/template: \"layout\" is undefined","time":"2026-04-30T22:06:22+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.004989,"ip":"127.0.0.1","time":"2026-04-30T22:06:22+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-30T22:06:22+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/admin/login","status":200,"duration":0.009498,"ip":"127.0.0.1","time":"2026-04-30T22:06:25+07:00","message":"HTTP request"}
+{"level":"error","error":"html/template: \"layout\" is undefined","time":"2026-04-30T22:06:25+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.004499,"ip":"127.0.0.1","time":"2026-04-30T22:06:25+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-30T22:06:25+07:00","message":"HTTP error"}
+{"level":"info","time":"2026-04-30T22:08:14+07:00","message":"Shutting down gracefully..."}
+{"level":"info","time":"2026-04-30T22:08:14+07:00","message":"Stopping upload worker"}
+{"level":"info","endpoint":"localhost:3900","bucket":"logs","interval":300000,"time":"2026-04-30T22:08:32+07:00","message":"Starting upload worker"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-30T22:08:32+07:00","message":"Starting server"}
+{"level":"info","count":1,"time":"2026-04-30T22:08:32+07:00","message":"Processing upload batch"}
+{"level":"info","method":"GET","path":"/admin/login","status":200,"duration":0.055463,"ip":"127.0.0.1","time":"2026-04-30T22:08:38+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.008325,"ip":"127.0.0.1","time":"2026-04-30T22:08:38+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-30T22:08:38+07:00","message":"HTTP error"}
+{"level":"info","time":"2026-04-30T22:09:49+07:00","message":"Shutting down gracefully..."}
+{"level":"info","time":"2026-04-30T22:09:49+07:00","message":"Stopping upload worker"}
+{"level":"info","endpoint":"localhost:3900","bucket":"logs","interval":300000,"time":"2026-04-30T22:09:51+07:00","message":"Starting upload worker"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-30T22:09:51+07:00","message":"Starting server"}
+{"level":"info","count":1,"time":"2026-04-30T22:09:51+07:00","message":"Processing upload batch"}
+{"level":"info","method":"GET","path":"/admin/login","status":200,"duration":0.094306,"ip":"127.0.0.1","time":"2026-04-30T22:09:54+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.008606,"ip":"127.0.0.1","time":"2026-04-30T22:09:54+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-30T22:09:54+07:00","message":"HTTP error"}
+{"level":"info","count":1,"time":"2026-04-30T22:14:51+07:00","message":"Processing upload batch"}
+{"level":"info","count":1,"time":"2026-04-30T22:19:51+07:00","message":"Processing upload batch"}
+{"level":"info","count":1,"time":"2026-04-30T22:24:51+07:00","message":"Processing upload batch"}
+{"level":"info","count":1,"time":"2026-04-30T22:29:51+07:00","message":"Processing upload batch"}
+{"level":"info","count":1,"time":"2026-04-30T22:34:51+07:00","message":"Processing upload batch"}
+{"level":"info","count":1,"time":"2026-04-30T22:39:51+07:00","message":"Processing upload batch"}
+{"level":"info","count":1,"time":"2026-04-30T22:44:51+07:00","message":"Processing upload batch"}
+{"level":"info","count":1,"time":"2026-04-30T22:49:51+07:00","message":"Processing upload batch"}
+{"level":"info","count":1,"time":"2026-04-30T22:54:51+07:00","message":"Processing upload batch"}
+{"level":"info","count":1,"time":"2026-04-30T22:59:51+07:00","message":"Processing upload batch"}
+{"level":"error","error":"s3 upload failed: Put \"http://localhost:3900/logs/mangosteen/app-2026-04-30-21.log\": dial tcp [::1]:3900: connect: connection refused","file":"logs/app-2026-04-30-21.log","time":"2026-04-30T22:59:56+07:00","message":"Upload failed"}

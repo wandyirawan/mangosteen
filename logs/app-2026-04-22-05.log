@@ -1,0 +1,2 @@
+{"level":"info","endpoint":"localhost:3900","bucket":"logs","interval":300000,"time":"2026-04-22T05:54:40+07:00","message":"Starting upload worker"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-22T05:54:40+07:00","message":"Starting server"}

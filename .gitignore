@@ -1,14 +1,2 @@
-*.db
-*.log
-data/
-logs/
-build/
-tmp/
-server
-certs/
-.env
-.aider*
-.swarm/
-coverage.out
-coverage.html
-tools/
+
+keys/

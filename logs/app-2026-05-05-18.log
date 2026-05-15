@@ -1,0 +1,26 @@
+{"level":"info","port":"4000","environment":"development","time":"2026-05-05T18:37:39+07:00","message":"Starting server"}
+{"level":"info","method":"GET","path":"/admin/users/8ee0d169-8b5b-423c-b1ae-220e3cfcddfb","status":302,"duration":0.003507,"ip":"127.0.0.1","time":"2026-05-05T18:37:44+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/admin/login","status":200,"duration":0.088146,"ip":"127.0.0.1","time":"2026-05-05T18:37:44+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.007995,"ip":"127.0.0.1","time":"2026-05-05T18:37:44+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-05-05T18:37:44+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.003216,"ip":"127.0.0.1","time":"2026-05-05T18:37:44+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T18:37:44+07:00","message":"HTTP error"}
+{"level":"info","method":"POST","path":"/admin/login","status":302,"duration":82.086541,"ip":"127.0.0.1","time":"2026-05-05T18:37:46+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/admin/users","status":200,"duration":0.400674,"ip":"127.0.0.1","time":"2026-05-05T18:37:46+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.004378,"ip":"127.0.0.1","time":"2026-05-05T18:37:46+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-05-05T18:37:46+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.003757,"ip":"127.0.0.1","time":"2026-05-05T18:37:47+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T18:37:47+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.004378,"ip":"127.0.0.1","time":"2026-05-05T18:37:47+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T18:37:47+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/admin/users/8ee0d169-8b5b-423c-b1ae-220e3cfcddfb","status":200,"duration":0.453804,"ip":"127.0.0.1","time":"2026-05-05T18:37:51+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.006222,"ip":"127.0.0.1","time":"2026-05-05T18:37:51+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-05-05T18:37:51+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.004358,"ip":"127.0.0.1","time":"2026-05-05T18:37:51+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T18:37:51+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/admin/logout","status":302,"duration":0.007313,"ip":"127.0.0.1","time":"2026-05-05T18:37:59+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/admin/login","status":200,"duration":0.027952,"ip":"127.0.0.1","time":"2026-05-05T18:37:59+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.004729,"ip":"127.0.0.1","time":"2026-05-05T18:37:59+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-05-05T18:37:59+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.005009,"ip":"127.0.0.1","time":"2026-05-05T18:37:59+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T18:37:59+07:00","message":"HTTP error"}

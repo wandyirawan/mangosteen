@@ -1,0 +1,34 @@
+{"level":"info","time":"2026-04-22T09:53:16+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-22T09:53:16+07:00","message":"Starting server"}
+{"level":"fatal","error":"failed to listen: listen tcp4 :3000: bind: address already in use","time":"2026-04-22T09:53:16+07:00","message":"Server failed to start"}
+{"level":"info","method":"GET","path":"/crown/","status":200,"duration":0.004108,"ip":"127.0.0.1","time":"2026-04-22T09:56:10+07:00","message":"HTTP request"}
+{"level":"info","file":"logs/app-2026-04-22-08.log","time":"2026-04-22T09:56:10+07:00","message":"Log file rotated, adding to upload queue"}
+{"level":"error","error":"Cannot GET /crown/","time":"2026-04-22T09:56:10+07:00","message":"HTTP error"}
+{"level":"error","error":"failed to enqueue: sql: Scan error on column index 2, name \"s3_path\": converting NULL to string is unsupported","file":"logs/app-2026-04-22-08.log","time":"2026-04-22T09:56:10+07:00","message":"Failed to enqueue rotated file"}
+{"level":"info","method":"GET","path":"/crown/login","status":200,"duration":0.002765,"ip":"127.0.0.1","time":"2026-04-22T09:56:19+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /crown/login","time":"2026-04-22T09:56:19+07:00","message":"HTTP error"}
+{"level":"info","time":"2026-04-22T09:56:36+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-22T09:56:36+07:00","message":"Starting server"}
+{"level":"fatal","error":"failed to listen: listen tcp4 :3000: bind: address already in use","time":"2026-04-22T09:56:36+07:00","message":"Server failed to start"}
+{"level":"info","time":"2026-04-22T09:56:48+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-22T09:56:48+07:00","message":"Starting server"}
+{"level":"info","time":"2026-04-22T09:56:53+07:00","message":"Shutting down gracefully..."}
+{"level":"info","time":"2026-04-22T09:56:53+07:00","message":"Stopping upload worker"}
+{"level":"info","time":"2026-04-22T09:56:57+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-22T09:56:57+07:00","message":"Starting server"}
+{"level":"info","time":"2026-04-22T09:57:05+07:00","message":"Shutting down gracefully..."}
+{"level":"info","time":"2026-04-22T09:57:05+07:00","message":"Stopping upload worker"}
+{"level":"info","time":"2026-04-22T09:57:11+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-22T09:57:11+07:00","message":"Starting server"}
+{"level":"info","method":"GET","path":"/crown/login","status":302,"duration":0.002194,"ip":"127.0.0.1","time":"2026-04-22T09:57:14+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/crown/login","status":302,"duration":0.002024,"ip":"127.0.0.1","time":"2026-04-22T09:57:19+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/crown/login","status":302,"duration":0.001904,"ip":"127.0.0.1","time":"2026-04-22T09:57:28+07:00","message":"HTTP request"}
+{"level":"info","time":"2026-04-22T09:58:50+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-22T09:58:50+07:00","message":"Starting server"}
+{"level":"info","method":"GET","path":"/crown/login","status":200,"duration":0.009808,"ip":"127.0.0.1","time":"2026-04-22T09:58:52+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":401,"duration":0.115438,"ip":"127.0.0.1","time":"2026-04-22T09:58:57+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/register","status":400,"duration":53.098316,"ip":"127.0.0.1","time":"2026-04-22T09:59:02+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/register","status":201,"duration":62.102275,"ip":"127.0.0.1","time":"2026-04-22T09:59:27+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":401,"duration":0.164039,"ip":"127.0.0.1","time":"2026-04-22T09:59:46+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/crown/","status":302,"duration":0.019477,"ip":"127.0.0.1","time":"2026-04-22T09:59:46+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":401,"duration":0.149592,"ip":"127.0.0.1","time":"2026-04-22T09:59:51+07:00","message":"HTTP request"}

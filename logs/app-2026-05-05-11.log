@@ -1,0 +1,56 @@
+{"level":"info","port":"4000","environment":"development","time":"2026-05-05T11:16:00+07:00","message":"Starting server"}
+{"level":"info","method":"GET","path":"/","status":200,"duration":0.004959,"ip":"127.0.0.1","time":"2026-05-05T11:16:22+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /","time":"2026-05-05T11:16:22+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.002806,"ip":"127.0.0.1","time":"2026-05-05T11:16:22+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T11:16:22+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/crown","status":200,"duration":0.003366,"ip":"127.0.0.1","time":"2026-05-05T11:16:30+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /crown","time":"2026-05-05T11:16:30+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.003236,"ip":"127.0.0.1","time":"2026-05-05T11:16:30+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T11:16:30+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/admin","status":302,"duration":0.004158,"ip":"127.0.0.1","time":"2026-05-05T11:16:34+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/admin/users","status":302,"duration":0.001453,"ip":"127.0.0.1","time":"2026-05-05T11:16:34+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/admin/login","status":200,"duration":0.084199,"ip":"127.0.0.1","time":"2026-05-05T11:16:34+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.003918,"ip":"127.0.0.1","time":"2026-05-05T11:16:38+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T11:16:38+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/admin/users","status":302,"duration":0.002865,"ip":"127.0.0.1","time":"2026-05-05T11:16:43+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/admin/login","status":200,"duration":0.027381,"ip":"127.0.0.1","time":"2026-05-05T11:16:43+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.004368,"ip":"127.0.0.1","time":"2026-05-05T11:16:43+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T11:16:43+07:00","message":"HTTP error"}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-05T11:25:03+07:00","message":"Starting server"}
+{"level":"fatal","error":"failed to listen: listen tcp4 :4000: bind: address already in use","time":"2026-05-05T11:25:03+07:00","message":"Server failed to start"}
+{"level":"info","time":"2026-05-05T11:25:28+07:00","message":"Shutting down gracefully..."}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-05T11:25:31+07:00","message":"Starting server"}
+{"level":"info","method":"POST","path":"/admin/login","status":302,"duration":116.105967,"ip":"127.0.0.1","time":"2026-05-05T11:25:55+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/admin/login","status":302,"duration":98.966876,"ip":"127.0.0.1","time":"2026-05-05T11:25:55+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/admin/users","status":200,"duration":0.353096,"ip":"127.0.0.1","time":"2026-05-05T11:25:55+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.006051,"ip":"127.0.0.1","time":"2026-05-05T11:26:00+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T11:26:00+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.009508,"ip":"127.0.0.1","time":"2026-05-05T11:26:00+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T11:26:00+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/admin/users/8ee0d169-8b5b-423c-b1ae-220e3cfcddfb","status":404,"duration":0.195018,"ip":"127.0.0.1","time":"2026-05-05T11:26:11+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.003396,"ip":"127.0.0.1","time":"2026-05-05T11:26:11+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T11:26:11+07:00","message":"HTTP error"}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-05T11:31:24+07:00","message":"Starting server"}
+{"level":"fatal","error":"failed to listen: listen tcp4 :4000: bind: address already in use","time":"2026-05-05T11:31:24+07:00","message":"Server failed to start"}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-05T11:31:24+07:00","message":"Starting server"}
+{"level":"fatal","error":"failed to listen: listen tcp4 :4000: bind: address already in use","time":"2026-05-05T11:31:24+07:00","message":"Server failed to start"}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-05T11:31:43+07:00","message":"Starting server"}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-05T11:31:43+07:00","message":"Starting server"}
+{"level":"fatal","error":"failed to listen: listen tcp4 :4000: bind: address already in use","time":"2026-05-05T11:31:43+07:00","message":"Server failed to start"}
+{"level":"info","method":"GET","path":"/admin/login","status":200,"duration":0.216058,"ip":"127.0.0.1","time":"2026-05-05T11:31:51+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/admin/login","status":200,"duration":0.031748,"ip":"127.0.0.1","time":"2026-05-05T11:31:51+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/admin/users/8ee0d169-8b5b-423c-b1ae-220e3cfcddfb","status":200,"duration":0.326703,"ip":"127.0.0.1","time":"2026-05-05T11:32:02+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.012704,"ip":"127.0.0.1","time":"2026-05-05T11:32:13+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-05-05T11:32:13+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.002955,"ip":"127.0.0.1","time":"2026-05-05T11:32:16+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T11:32:16+07:00","message":"HTTP error"}
+{"level":"info","time":"2026-05-05T11:35:24+07:00","message":"Shutting down gracefully..."}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-05T11:40:43+07:00","message":"Starting server"}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-05T11:40:43+07:00","message":"Starting server"}
+{"level":"fatal","error":"failed to listen: listen tcp4 :4000: bind: address already in use","time":"2026-05-05T11:40:43+07:00","message":"Server failed to start"}
+{"level":"info","method":"GET","path":"/admin/users/8ee0d169-8b5b-423c-b1ae-220e3cfcddfb","status":200,"duration":0.542212,"ip":"127.0.0.1","time":"2026-05-05T11:40:53+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.020187,"ip":"127.0.0.1","time":"2026-05-05T11:40:53+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-05-05T11:40:53+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.003516,"ip":"127.0.0.1","time":"2026-05-05T11:40:53+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T11:40:53+07:00","message":"HTTP error"}
+{"level":"info","time":"2026-05-05T11:40:56+07:00","message":"Shutting down gracefully..."}

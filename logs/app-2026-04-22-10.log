@@ -1,0 +1,91 @@
+{"level":"info","time":"2026-04-22T10:00:28+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-22T10:00:28+07:00","message":"Starting server"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":401,"duration":0.206429,"ip":"127.0.0.1","time":"2026-04-22T10:00:31+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/crown/","status":302,"duration":0.009258,"ip":"127.0.0.1","time":"2026-04-22T10:00:31+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":401,"duration":0.169238,"ip":"127.0.0.1","time":"2026-04-22T10:00:39+07:00","message":"HTTP request"}
+{"level":"info","time":"2026-04-22T10:01:06+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-22T10:01:06+07:00","message":"Starting server"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":401,"duration":0.261433,"ip":"127.0.0.1","time":"2026-04-22T10:01:09+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/register","status":201,"duration":70.606801,"ip":"127.0.0.1","time":"2026-04-22T10:01:50+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":401,"duration":0.148991,"ip":"127.0.0.1","time":"2026-04-22T10:01:50+07:00","message":"HTTP request"}
+{"level":"info","time":"2026-04-22T10:02:18+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-22T10:02:18+07:00","message":"Starting server"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":401,"duration":0.230434,"ip":"127.0.0.1","time":"2026-04-22T10:02:21+07:00","message":"HTTP request"}
+{"level":"info","time":"2026-04-22T10:03:12+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-22T10:03:12+07:00","message":"Starting server"}
+{"level":"info","email":"admin2@test.local","hash":"$argon2id$v=19$m=65536,t=3,p=4$sPgYQr9c1iIULxAo/Wl","time":"2026-04-22T10:03:15+07:00","message":"Checking password"}
+{"level":"info","ok":false,"error":"invalid hash format","time":"2026-04-22T10:03:15+07:00","message":"Password check result"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":401,"duration":0.272193,"ip":"127.0.0.1","time":"2026-04-22T10:03:15+07:00","message":"HTTP request"}
+{"level":"info","time":"2026-04-22T10:04:01+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-22T10:04:01+07:00","message":"Starting server"}
+{"level":"info","email":"admin2@test.local","hash":"$argon2id$v=19$m=65536,t=3,p=4$sPgYQr9c1iIULxAo/Wl","time":"2026-04-22T10:04:03+07:00","message":"Checking password"}
+{"level":"info","ok":false,"error":"invalid hash format","time":"2026-04-22T10:04:03+07:00","message":"Password check result"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":401,"duration":0.337315,"ip":"127.0.0.1","time":"2026-04-22T10:04:03+07:00","message":"HTTP request"}
+{"level":"info","time":"2026-04-22T10:05:03+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-22T10:05:03+07:00","message":"Starting server"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":200,"duration":107.799954,"ip":"127.0.0.1","time":"2026-04-22T10:05:05+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":200,"duration":91.698259,"ip":"127.0.0.1","time":"2026-04-22T10:05:11+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/crown/","status":200,"duration":0.146295,"ip":"127.0.0.1","time":"2026-04-22T10:05:11+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":200,"duration":87.641922,"ip":"127.0.0.1","time":"2026-04-22T10:05:16+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/crown/users","status":200,"duration":0.149942,"ip":"127.0.0.1","time":"2026-04-22T10:05:16+07:00","message":"HTTP request"}
+{"level":"info","time":"2026-04-22T10:09:34+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-22T10:09:34+07:00","message":"Starting server"}
+{"level":"fatal","error":"failed to listen: listen tcp4 :3000: bind: address already in use","time":"2026-04-22T10:09:34+07:00","message":"Server failed to start"}
+{"level":"info","time":"2026-04-22T10:10:06+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-22T10:10:06+07:00","message":"Starting server"}
+{"level":"info","method":"GET","path":"/","status":200,"duration":0.005009,"ip":"127.0.0.1","time":"2026-04-22T10:10:13+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /","time":"2026-04-22T10:10:13+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.003797,"ip":"127.0.0.1","time":"2026-04-22T10:10:13+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-22T10:10:13+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/crow","status":200,"duration":0.006221,"ip":"127.0.0.1","time":"2026-04-22T10:10:20+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /crow","time":"2026-04-22T10:10:20+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.003596,"ip":"127.0.0.1","time":"2026-04-22T10:10:20+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-22T10:10:20+07:00","message":"HTTP error"}
+{"level":"error","error":"Request Timeout","time":"2026-04-22T10:10:23+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.004649,"ip":"127.0.0.1","time":"2026-04-22T10:10:35+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-22T10:10:35+07:00","message":"HTTP error"}
+{"level":"info","time":"2026-04-22T10:11:42+07:00","message":"Shutting down gracefully..."}
+{"level":"info","time":"2026-04-22T10:11:42+07:00","message":"Stopping upload worker"}
+{"level":"info","time":"2026-04-22T10:11:46+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-22T10:11:46+07:00","message":"Starting server"}
+{"level":"info","method":"GET","path":"/crown","status":302,"duration":0.003216,"ip":"127.0.0.1","time":"2026-04-22T10:11:49+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/auth/login","status":200,"duration":0.004729,"ip":"127.0.0.1","time":"2026-04-22T10:11:49+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /auth/login","time":"2026-04-22T10:11:49+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.003928,"ip":"127.0.0.1","time":"2026-04-22T10:11:49+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-22T10:11:49+07:00","message":"HTTP error"}
+{"level":"error","error":"Request Timeout","time":"2026-04-22T10:11:59+07:00","message":"HTTP error"}
+{"level":"info","time":"2026-04-22T10:13:26+07:00","message":"Shutting down gracefully..."}
+{"level":"info","time":"2026-04-22T10:13:26+07:00","message":"Stopping upload worker"}
+{"level":"info","time":"2026-04-22T10:13:28+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-22T10:13:28+07:00","message":"Starting server"}
+{"level":"info","method":"GET","path":"/crown","status":302,"duration":0.002274,"ip":"127.0.0.1","time":"2026-04-22T10:13:37+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/crown/login","status":200,"duration":0.002715,"ip":"127.0.0.1","time":"2026-04-22T10:13:37+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.013596,"ip":"127.0.0.1","time":"2026-04-22T10:13:37+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-22T10:13:37+07:00","message":"HTTP error"}
+{"level":"error","error":"Request Timeout","time":"2026-04-22T10:13:47+07:00","message":"HTTP error"}
+{"level":"info","time":"2026-04-22T10:15:51+07:00","message":"Shutting down gracefully..."}
+{"level":"info","time":"2026-04-22T10:15:51+07:00","message":"Stopping upload worker"}
+{"level":"info","time":"2026-04-22T10:15:53+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-22T10:15:53+07:00","message":"Starting server"}
+{"level":"info","method":"GET","path":"/crown/login","status":200,"duration":0.001943,"ip":"127.0.0.1","time":"2026-04-22T10:15:57+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.008887,"ip":"127.0.0.1","time":"2026-04-22T10:15:57+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-22T10:15:57+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/crown/login","status":200,"duration":0.007113,"ip":"127.0.0.1","time":"2026-04-22T10:15:58+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.004408,"ip":"127.0.0.1","time":"2026-04-22T10:15:58+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-22T10:15:58+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/crown/login","status":200,"duration":0.001322,"ip":"127.0.0.1","time":"2026-04-22T10:16:01+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.005601,"ip":"127.0.0.1","time":"2026-04-22T10:16:01+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-22T10:16:01+07:00","message":"HTTP error"}
+{"level":"error","error":"Request Timeout","time":"2026-04-22T10:16:07+07:00","message":"HTTP error"}
+{"level":"info","time":"2026-04-22T10:24:06+07:00","message":"Shutting down gracefully..."}
+{"level":"info","time":"2026-04-22T10:24:06+07:00","message":"Stopping upload worker"}
+{"level":"info","time":"2026-04-22T10:24:08+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-22T10:24:08+07:00","message":"Starting server"}
+{"level":"info","method":"GET","path":"/crown/login","status":200,"duration":0.003627,"ip":"127.0.0.1","time":"2026-04-22T10:24:18+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.006923,"ip":"127.0.0.1","time":"2026-04-22T10:24:18+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-22T10:24:18+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/auth/login","status":200,"duration":0.002906,"ip":"127.0.0.1","time":"2026-04-22T10:24:20+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /auth/login","time":"2026-04-22T10:24:20+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.004548,"ip":"127.0.0.1","time":"2026-04-22T10:24:20+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-22T10:24:20+07:00","message":"HTTP error"}
+{"level":"error","error":"Request Timeout","time":"2026-04-22T10:24:28+07:00","message":"HTTP error"}

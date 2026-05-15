@@ -1,0 +1,17 @@
+{"level":"info","count":1,"time":"2026-05-01T00:04:51+07:00","message":"Processing upload batch"}
+{"level":"info","file":"logs/app-2026-04-30-23.log","time":"2026-05-01T00:04:51+07:00","message":"Log file rotated, adding to upload queue"}
+{"level":"error","error":"s3 upload failed: Put \"http://localhost:3900/logs/mangosteen/app-2026-04-30-22.log\": dial tcp [::1]:3900: connect: connection refused","file":"logs/app-2026-04-30-22.log","time":"2026-05-01T00:04:56+07:00","message":"Upload failed"}
+{"level":"info","count":2,"time":"2026-05-01T00:09:51+07:00","message":"Processing upload batch"}
+{"level":"error","error":"s3 upload failed: Put \"http://localhost:3900/logs/mangosteen/app-2026-04-30-22.log\": dial tcp [::1]:3900: connect: connection refused","file":"logs/app-2026-04-30-22.log","time":"2026-05-01T00:09:55+07:00","message":"Upload failed"}
+{"level":"info","count":2,"time":"2026-05-01T00:14:51+07:00","message":"Processing upload batch"}
+{"level":"error","error":"s3 upload failed: Put \"http://localhost:3900/logs/mangosteen/app-2026-04-30-22.log\": dial tcp [::1]:3900: connect: connection refused","file":"logs/app-2026-04-30-22.log","time":"2026-05-01T00:14:54+07:00","message":"Upload failed"}
+{"level":"info","count":1,"time":"2026-05-01T00:19:51+07:00","message":"Processing upload batch"}
+{"level":"info","count":1,"time":"2026-05-01T00:24:51+07:00","message":"Processing upload batch"}
+{"level":"info","count":1,"time":"2026-05-01T00:29:51+07:00","message":"Processing upload batch"}
+{"level":"info","count":1,"time":"2026-05-01T00:34:51+07:00","message":"Processing upload batch"}
+{"level":"info","count":1,"time":"2026-05-01T00:39:51+07:00","message":"Processing upload batch"}
+{"level":"info","count":1,"time":"2026-05-01T00:44:51+07:00","message":"Processing upload batch"}
+{"level":"info","count":1,"time":"2026-05-01T00:49:51+07:00","message":"Processing upload batch"}
+{"level":"info","count":1,"time":"2026-05-01T00:54:51+07:00","message":"Processing upload batch"}
+{"level":"info","count":1,"time":"2026-05-01T00:59:51+07:00","message":"Processing upload batch"}
+{"level":"error","error":"s3 upload failed: Put \"http://localhost:3900/logs/mangosteen/app-2026-04-30-23.log\": dial tcp [::1]:3900: connect: connection refused","file":"logs/app-2026-04-30-23.log","time":"2026-05-01T00:59:56+07:00","message":"Upload failed"}

@@ -1,0 +1,30 @@
+{"level":"info","endpoint":"localhost:3900","bucket":"logs","interval":300000,"time":"2026-04-30T21:52:32+07:00","message":"Starting upload worker"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-30T21:52:32+07:00","message":"Starting server"}
+{"level":"error","error":"failed to scan row: sql: Scan error on column index 2, name \"s3_path\": converting NULL to string is unsupported","time":"2026-04-30T21:52:32+07:00","message":"Failed to get pending uploads"}
+{"level":"info","endpoint":"localhost:3900","bucket":"logs","interval":300000,"time":"2026-04-30T21:54:12+07:00","message":"Starting upload worker"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-30T21:54:12+07:00","message":"Starting server"}
+{"level":"fatal","error":"failed to listen: listen tcp4 :3000: bind: address already in use","time":"2026-04-30T21:54:12+07:00","message":"Server failed to start"}
+{"level":"info","time":"2026-04-30T21:54:22+07:00","message":"Shutting down gracefully..."}
+{"level":"info","time":"2026-04-30T21:54:22+07:00","message":"Stopping upload worker"}
+{"level":"info","endpoint":"localhost:3900","bucket":"logs","interval":300000,"time":"2026-04-30T21:54:24+07:00","message":"Starting upload worker"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-30T21:54:24+07:00","message":"Starting server"}
+{"level":"info","method":"GET","path":"/","status":200,"duration":0.00508,"ip":"127.0.0.1","time":"2026-04-30T21:54:49+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /","time":"2026-04-30T21:54:49+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.002565,"ip":"127.0.0.1","time":"2026-04-30T21:54:50+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-30T21:54:50+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/crown","status":200,"duration":0.002364,"ip":"127.0.0.1","time":"2026-04-30T21:55:01+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /crown","time":"2026-04-30T21:55:01+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.003236,"ip":"127.0.0.1","time":"2026-04-30T21:55:01+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-30T21:55:01+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/crown/","status":200,"duration":0.003276,"ip":"127.0.0.1","time":"2026-04-30T21:55:16+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /crown/","time":"2026-04-30T21:55:16+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.004188,"ip":"127.0.0.1","time":"2026-04-30T21:55:16+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-30T21:55:16+07:00","message":"HTTP error"}
+{"level":"info","time":"2026-04-30T21:56:17+07:00","message":"Shutting down gracefully..."}
+{"level":"info","time":"2026-04-30T21:56:17+07:00","message":"Stopping upload worker"}
+{"level":"info","endpoint":"localhost:3900","bucket":"logs","interval":300000,"time":"2026-04-30T21:57:51+07:00","message":"Starting upload worker"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-30T21:57:51+07:00","message":"Starting server"}
+{"level":"info","method":"GET","path":"/admin/login","status":200,"duration":0.009467,"ip":"127.0.0.1","time":"2026-04-30T21:57:55+07:00","message":"HTTP request"}
+{"level":"error","error":"html/template: \"layout\" is undefined","time":"2026-04-30T21:57:55+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.008436,"ip":"127.0.0.1","time":"2026-04-30T21:57:55+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-30T21:57:55+07:00","message":"HTTP error"}

@@ -1,0 +1,106 @@
+{"level":"info","port":"4000","environment":"development","time":"2026-05-05T17:06:15+07:00","message":"Starting server"}
+{"level":"info","method":"GET","path":"/admin/users/8ee0d169-8b5b-423c-b1ae-220e3cfcddfb","status":200,"duration":0.515059,"ip":"127.0.0.1","time":"2026-05-05T17:06:41+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.012714,"ip":"127.0.0.1","time":"2026-05-05T17:06:41+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-05-05T17:06:41+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.003797,"ip":"127.0.0.1","time":"2026-05-05T17:06:41+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T17:06:41+07:00","message":"HTTP error"}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-05T17:07:05+07:00","message":"Starting server"}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-05T17:12:37+07:00","message":"Starting server"}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-05T17:13:04+07:00","message":"Starting server"}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-05T17:13:57+07:00","message":"Starting server"}
+{"level":"info","time":"2026-05-05T17:16:50+07:00","message":"Shutting down gracefully..."}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-05T17:30:06+07:00","message":"Starting server"}
+{"level":"info","method":"GET","path":"/admin/users/8ee0d169-8b5b-423c-b1ae-220e3cfcddfb","status":302,"duration":0.00511,"ip":"127.0.0.1","time":"2026-05-05T17:30:10+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/admin/login","status":200,"duration":0.093507,"ip":"127.0.0.1","time":"2026-05-05T17:30:10+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.008736,"ip":"127.0.0.1","time":"2026-05-05T17:30:10+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-05-05T17:30:10+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.004158,"ip":"127.0.0.1","time":"2026-05-05T17:30:10+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T17:30:10+07:00","message":"HTTP error"}
+{"level":"info","method":"POST","path":"/admin/login","status":302,"duration":94.541105,"ip":"127.0.0.1","time":"2026-05-05T17:30:12+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/admin/users","status":200,"duration":0.344941,"ip":"127.0.0.1","time":"2026-05-05T17:30:12+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.004168,"ip":"127.0.0.1","time":"2026-05-05T17:30:12+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-05-05T17:30:12+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.003837,"ip":"127.0.0.1","time":"2026-05-05T17:30:13+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T17:30:13+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.004649,"ip":"127.0.0.1","time":"2026-05-05T17:30:13+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T17:30:13+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/admin/users/8ee0d169-8b5b-423c-b1ae-220e3cfcddfb","status":200,"duration":0.462252,"ip":"127.0.0.1","time":"2026-05-05T17:30:14+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.005701,"ip":"127.0.0.1","time":"2026-05-05T17:30:14+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-05-05T17:30:14+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.00553,"ip":"127.0.0.1","time":"2026-05-05T17:30:14+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T17:30:14+07:00","message":"HTTP error"}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-05T17:32:33+07:00","message":"Starting server"}
+{"level":"info","method":"GET","path":"/admin/users/8ee0d169-8b5b-423c-b1ae-220e3cfcddfb","status":200,"duration":0.681454,"ip":"127.0.0.1","time":"2026-05-05T17:36:49+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.009719,"ip":"127.0.0.1","time":"2026-05-05T17:36:49+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-05-05T17:36:49+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.004599,"ip":"127.0.0.1","time":"2026-05-05T17:36:50+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T17:36:50+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/admin/users","status":200,"duration":0.359447,"ip":"127.0.0.1","time":"2026-05-05T17:38:22+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.004619,"ip":"127.0.0.1","time":"2026-05-05T17:38:22+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-05-05T17:38:22+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.003036,"ip":"127.0.0.1","time":"2026-05-05T17:38:22+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T17:38:22+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/admin/users/8ee0d169-8b5b-423c-b1ae-220e3cfcddfb","status":200,"duration":0.275279,"ip":"127.0.0.1","time":"2026-05-05T17:38:24+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.00493,"ip":"127.0.0.1","time":"2026-05-05T17:38:24+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-05-05T17:38:24+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.003938,"ip":"127.0.0.1","time":"2026-05-05T17:38:24+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T17:38:24+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/admin/users/8ee0d169-8b5b-423c-b1ae-220e3cfcddfb","status":200,"duration":0.224934,"ip":"127.0.0.1","time":"2026-05-05T17:38:27+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.004588,"ip":"127.0.0.1","time":"2026-05-05T17:38:27+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-05-05T17:38:27+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.005119,"ip":"127.0.0.1","time":"2026-05-05T17:38:28+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T17:38:28+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/admin/users/8ee0d169-8b5b-423c-b1ae-220e3cfcddfb","status":200,"duration":0.232899,"ip":"127.0.0.1","time":"2026-05-05T17:38:28+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.006021,"ip":"127.0.0.1","time":"2026-05-05T17:38:28+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-05-05T17:38:28+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.005561,"ip":"127.0.0.1","time":"2026-05-05T17:38:28+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T17:38:28+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.006672,"ip":"127.0.0.1","time":"2026-05-05T17:38:32+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T17:38:32+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.0055,"ip":"127.0.0.1","time":"2026-05-05T17:38:32+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-05-05T17:38:32+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.004599,"ip":"127.0.0.1","time":"2026-05-05T17:38:32+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-05-05T17:38:32+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/admin/users/588926fb-bd44-4477-af56-72418acf298b","status":200,"duration":0.274056,"ip":"127.0.0.1","time":"2026-05-05T17:38:34+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.00524,"ip":"127.0.0.1","time":"2026-05-05T17:38:34+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-05-05T17:38:34+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.0052,"ip":"127.0.0.1","time":"2026-05-05T17:38:34+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T17:38:34+07:00","message":"HTTP error"}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-05T17:39:05+07:00","message":"Starting server"}
+{"level":"info","method":"GET","path":"/admin/users/588926fb-bd44-4477-af56-72418acf298b","status":200,"duration":0.586355,"ip":"127.0.0.1","time":"2026-05-05T17:39:08+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.007063,"ip":"127.0.0.1","time":"2026-05-05T17:39:08+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-05-05T17:39:08+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.003987,"ip":"127.0.0.1","time":"2026-05-05T17:39:08+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T17:39:08+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/admin/users/588926fb-bd44-4477-af56-72418acf298b","status":200,"duration":0.230415,"ip":"127.0.0.1","time":"2026-05-05T17:39:08+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.004328,"ip":"127.0.0.1","time":"2026-05-05T17:39:08+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-05-05T17:39:08+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.00484,"ip":"127.0.0.1","time":"2026-05-05T17:39:09+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T17:39:09+07:00","message":"HTTP error"}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-05T17:43:05+07:00","message":"Starting server"}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-05T17:46:21+07:00","message":"Starting server"}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-05T17:47:22+07:00","message":"Starting server"}
+{"level":"info","time":"2026-05-05T17:47:52+07:00","message":"Shutting down gracefully..."}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-05T17:53:29+07:00","message":"Starting server"}
+{"level":"info","method":"GET","path":"/admin/users/588926fb-bd44-4477-af56-72418acf298b","status":302,"duration":0.007514,"ip":"127.0.0.1","time":"2026-05-05T17:53:29+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/admin/login","status":200,"duration":0.157548,"ip":"127.0.0.1","time":"2026-05-05T17:53:30+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.012534,"ip":"127.0.0.1","time":"2026-05-05T17:53:30+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-05-05T17:53:30+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.003928,"ip":"127.0.0.1","time":"2026-05-05T17:53:30+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T17:53:30+07:00","message":"HTTP error"}
+{"level":"info","method":"POST","path":"/admin/login","status":302,"duration":81.70883,"ip":"127.0.0.1","time":"2026-05-05T17:53:34+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/admin/users","status":200,"duration":0.315897,"ip":"127.0.0.1","time":"2026-05-05T17:53:34+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.004058,"ip":"127.0.0.1","time":"2026-05-05T17:53:34+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-05-05T17:53:34+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.003737,"ip":"127.0.0.1","time":"2026-05-05T17:53:34+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T17:53:34+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.005049,"ip":"127.0.0.1","time":"2026-05-05T17:53:34+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T17:53:34+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/admin/users/8ee0d169-8b5b-423c-b1ae-220e3cfcddfb","status":200,"duration":0.358738,"ip":"127.0.0.1","time":"2026-05-05T17:53:38+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.005831,"ip":"127.0.0.1","time":"2026-05-05T17:53:38+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-05-05T17:53:38+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.004688,"ip":"127.0.0.1","time":"2026-05-05T17:53:39+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-05-05T17:53:39+07:00","message":"HTTP error"}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-05T17:56:44+07:00","message":"Starting server"}
+{"level":"info","port":"4000","environment":"development","time":"2026-05-05T17:56:54+07:00","message":"Starting server"}
+{"level":"info","time":"2026-05-05T17:57:00+07:00","message":"Shutting down gracefully..."}

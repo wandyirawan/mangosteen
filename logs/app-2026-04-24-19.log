@@ -1,0 +1,3 @@
+{"level":"info","time":"2026-04-24T19:02:32+07:00","message":"Shutting down gracefully..."}
+{"level":"info","time":"2026-04-24T19:02:32+07:00","message":"Stopping upload worker"}
+{"level":"info","file":"logs/app-2026-04-24-11.log","time":"2026-04-24T19:02:32+07:00","message":"Log file rotated, adding to upload queue"}

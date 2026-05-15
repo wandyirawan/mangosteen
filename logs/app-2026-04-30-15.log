@@ -1,0 +1,5 @@
+{"level":"info","time":"2026-04-30T15:58:57+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-30T15:58:57+07:00","message":"Starting server"}
+{"level":"info","method":"GET","path":"/crown","status":302,"duration":0.004298,"ip":"127.0.0.1","time":"2026-04-30T15:59:03+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/crown/login","status":200,"duration":0.010219,"ip":"127.0.0.1","time":"2026-04-30T15:59:03+07:00","message":"HTTP request"}
+{"level":"error","error":"Request Timeout","time":"2026-04-30T15:59:13+07:00","message":"HTTP error"}

@@ -1,0 +1,7 @@
+{"level":"info","time":"2026-04-22T06:03:23+07:00","message":"Shutting down gracefully..."}
+{"level":"info","time":"2026-04-22T06:03:23+07:00","message":"Stopping upload worker"}
+{"level":"info","file":"logs/app-2026-04-22-05.log","time":"2026-04-22T06:03:23+07:00","message":"Log file rotated, adding to upload queue"}
+{"level":"info","endpoint":"localhost:3900","bucket":"logs","interval":300000,"time":"2026-04-22T06:03:25+07:00","message":"Starting upload worker"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-22T06:03:25+07:00","message":"Starting server"}
+{"level":"info","time":"2026-04-22T06:03:31+07:00","message":"Shutting down gracefully..."}
+{"level":"info","time":"2026-04-22T06:03:31+07:00","message":"Stopping upload worker"}

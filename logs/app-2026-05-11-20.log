@@ -1,0 +1,8 @@
+{"level":"info","port":"4000","environment":"development","time":"2026-05-11T20:24:18+07:00","message":"Starting server"}
+{"level":"info","method":"GET","path":"/.well-known/jwks.json","status":200,"duration":0.004959,"ip":"127.0.0.1","time":"2026-05-11T20:32:08+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/jwks.json","time":"2026-05-11T20:32:08+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/.well-known/jwks.json","status":200,"duration":0.002745,"ip":"127.0.0.1","time":"2026-05-11T20:32:43+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/jwks.json","time":"2026-05-11T20:32:43+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/api/health/live","status":200,"duration":0.022663,"ip":"127.0.0.1","time":"2026-05-11T20:32:44+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/api/.well-known/jwks.json","status":200,"duration":0.212089,"ip":"127.0.0.1","time":"2026-05-11T20:33:04+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/api/.well-known/jwks.json","status":200,"duration":0.006122,"ip":"127.0.0.1","time":"2026-05-11T20:33:19+07:00","message":"HTTP request"}

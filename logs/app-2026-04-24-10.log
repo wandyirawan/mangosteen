@@ -1,0 +1,133 @@
+{"level":"info","time":"2026-04-24T10:09:49+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-24T10:09:49+07:00","message":"Starting server"}
+{"level":"info","method":"GET","path":"/","status":200,"duration":0.004508,"ip":"127.0.0.1","time":"2026-04-24T10:09:58+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /","time":"2026-04-24T10:09:58+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.003146,"ip":"127.0.0.1","time":"2026-04-24T10:09:58+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-24T10:09:58+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/crown","status":302,"duration":0.003927,"ip":"127.0.0.1","time":"2026-04-24T10:10:06+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/crown/login","status":200,"duration":0.004769,"ip":"127.0.0.1","time":"2026-04-24T10:10:06+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.002745,"ip":"127.0.0.1","time":"2026-04-24T10:10:06+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-24T10:10:06+07:00","message":"HTTP error"}
+{"level":"error","error":"Request Timeout","time":"2026-04-24T10:10:08+07:00","message":"HTTP error"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":401,"duration":36.842994,"ip":"127.0.0.1","time":"2026-04-24T10:11:25+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":401,"duration":34.934915,"ip":"127.0.0.1","time":"2026-04-24T10:11:32+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":401,"duration":36.546257,"ip":"127.0.0.1","time":"2026-04-24T10:12:03+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.003827,"ip":"127.0.0.1","time":"2026-04-24T10:12:06+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-04-24T10:12:06+07:00","message":"HTTP error"}
+{"level":"info","time":"2026-04-24T10:12:35+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-24T10:12:35+07:00","message":"Starting server"}
+{"level":"fatal","error":"failed to listen: listen tcp4 :3000: bind: address already in use","time":"2026-04-24T10:12:35+07:00","message":"Server failed to start"}
+{"level":"info","method":"GET","path":"/crown/login","status":200,"duration":0.006261,"ip":"127.0.0.1","time":"2026-04-24T10:12:37+07:00","message":"HTTP request"}
+{"level":"info","time":"2026-04-24T10:14:48+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-24T10:14:48+07:00","message":"Starting server"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":200,"duration":115.220899,"ip":"127.0.0.1","time":"2026-04-24T10:14:51+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":401,"duration":39.9567,"ip":"127.0.0.1","time":"2026-04-24T10:14:51+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":401,"duration":41.893335,"ip":"127.0.0.1","time":"2026-04-24T10:14:51+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":200,"duration":92.192903,"ip":"127.0.0.1","time":"2026-04-24T10:16:13+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/crown/","status":302,"duration":0.005159,"ip":"127.0.0.1","time":"2026-04-24T10:16:13+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/crown/login","status":200,"duration":0.009488,"ip":"127.0.0.1","time":"2026-04-24T10:16:13+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.012122,"ip":"127.0.0.1","time":"2026-04-24T10:16:13+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-04-24T10:16:13+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.004208,"ip":"127.0.0.1","time":"2026-04-24T10:16:13+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-24T10:16:13+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.005821,"ip":"127.0.0.1","time":"2026-04-24T10:16:13+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-24T10:16:13+07:00","message":"HTTP error"}
+{"level":"error","error":"Request Timeout","time":"2026-04-24T10:16:23+07:00","message":"HTTP error"}
+{"level":"info","time":"2026-04-24T10:16:48+07:00","message":"Shutting down gracefully..."}
+{"level":"info","time":"2026-04-24T10:16:48+07:00","message":"Stopping upload worker"}
+{"level":"info","time":"2026-04-24T10:21:13+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-24T10:21:13+07:00","message":"Starting server"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":200,"duration":81.845596,"ip":"127.0.0.1","time":"2026-04-24T10:21:21+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/crown/","status":302,"duration":0.003737,"ip":"127.0.0.1","time":"2026-04-24T10:21:21+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/crown/login","status":200,"duration":0.010099,"ip":"127.0.0.1","time":"2026-04-24T10:21:21+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.01071,"ip":"127.0.0.1","time":"2026-04-24T10:21:21+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-04-24T10:21:21+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.004178,"ip":"127.0.0.1","time":"2026-04-24T10:21:21+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-24T10:21:21+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.003576,"ip":"127.0.0.1","time":"2026-04-24T10:21:21+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-24T10:21:21+07:00","message":"HTTP error"}
+{"level":"error","error":"Request Timeout","time":"2026-04-24T10:21:31+07:00","message":"HTTP error"}
+{"level":"info","time":"2026-04-24T10:24:58+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-24T10:24:58+07:00","message":"Starting server"}
+{"level":"info","method":"GET","path":"/api/health/live","status":200,"duration":0.077286,"ip":"127.0.0.1","time":"2026-04-24T10:25:01+07:00","message":"HTTP request"}
+{"level":"info","time":"2026-04-24T10:26:57+07:00","message":"Shutting down gracefully..."}
+{"level":"info","time":"2026-04-24T10:26:57+07:00","message":"Stopping upload worker"}
+{"level":"info","time":"2026-04-24T10:27:10+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-24T10:27:10+07:00","message":"Starting server"}
+{"level":"info","method":"GET","path":"/crown/login","status":200,"duration":0.003647,"ip":"127.0.0.1","time":"2026-04-24T10:27:19+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.011812,"ip":"127.0.0.1","time":"2026-04-24T10:27:19+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-04-24T10:27:19+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.004718,"ip":"127.0.0.1","time":"2026-04-24T10:27:19+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-24T10:27:19+07:00","message":"HTTP error"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":200,"duration":79.540904,"ip":"127.0.0.1","time":"2026-04-24T10:27:21+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/crown/","status":302,"duration":0.003667,"ip":"127.0.0.1","time":"2026-04-24T10:27:22+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/crown/login","status":200,"duration":0.001903,"ip":"127.0.0.1","time":"2026-04-24T10:27:22+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.00535,"ip":"127.0.0.1","time":"2026-04-24T10:27:22+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-04-24T10:27:22+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.00566,"ip":"127.0.0.1","time":"2026-04-24T10:27:22+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-24T10:27:22+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.007003,"ip":"127.0.0.1","time":"2026-04-24T10:27:22+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-24T10:27:22+07:00","message":"HTTP error"}
+{"level":"error","error":"Request Timeout","time":"2026-04-24T10:27:29+07:00","message":"HTTP error"}
+{"level":"info","time":"2026-04-24T10:34:04+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-24T10:34:04+07:00","message":"Starting server"}
+{"level":"fatal","error":"failed to listen: listen tcp4 :3000: bind: address already in use","time":"2026-04-24T10:34:04+07:00","message":"Server failed to start"}
+{"level":"info","time":"2026-04-24T10:34:46+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-24T10:34:46+07:00","message":"Starting server"}
+{"level":"fatal","error":"failed to listen: listen tcp4 :3000: bind: address already in use","time":"2026-04-24T10:34:46+07:00","message":"Server failed to start"}
+{"level":"info","time":"2026-04-24T10:36:17+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-24T10:36:17+07:00","message":"Starting server"}
+{"level":"info","time":"2026-04-24T10:36:25+07:00","message":"Shutting down gracefully..."}
+{"level":"info","time":"2026-04-24T10:36:25+07:00","message":"Stopping upload worker"}
+{"level":"info","time":"2026-04-24T10:36:32+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-24T10:36:32+07:00","message":"Starting server"}
+{"level":"info","method":"GET","path":"/crown/login","status":200,"duration":0.006803,"ip":"127.0.0.1","time":"2026-04-24T10:36:40+07:00","message":"HTTP request"}
+{"level":"info","time":"2026-04-24T10:37:26+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-24T10:37:26+07:00","message":"Starting server"}
+{"level":"fatal","error":"failed to listen: listen tcp4 :3000: bind: address already in use","time":"2026-04-24T10:37:26+07:00","message":"Server failed to start"}
+{"level":"info","time":"2026-04-24T10:37:42+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-24T10:37:42+07:00","message":"Starting server"}
+{"level":"fatal","error":"failed to listen: listen tcp4 :3000: bind: address already in use","time":"2026-04-24T10:37:42+07:00","message":"Server failed to start"}
+{"level":"info","time":"2026-04-24T10:38:10+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-24T10:38:10+07:00","message":"Starting server"}
+{"level":"info","method":"GET","path":"/crown/login","status":200,"duration":0.004258,"ip":"127.0.0.1","time":"2026-04-24T10:38:15+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.016812,"ip":"127.0.0.1","time":"2026-04-24T10:38:15+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-04-24T10:38:15+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.003657,"ip":"127.0.0.1","time":"2026-04-24T10:38:16+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-24T10:38:16+07:00","message":"HTTP error"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":200,"duration":78.851148,"ip":"127.0.0.1","time":"2026-04-24T10:38:17+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/crown/","status":302,"duration":0.003457,"ip":"127.0.0.1","time":"2026-04-24T10:38:17+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/crown/login","status":200,"duration":0.001623,"ip":"127.0.0.1","time":"2026-04-24T10:38:17+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.006493,"ip":"127.0.0.1","time":"2026-04-24T10:38:17+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-04-24T10:38:17+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.007324,"ip":"127.0.0.1","time":"2026-04-24T10:38:18+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-24T10:38:18+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.0054,"ip":"127.0.0.1","time":"2026-04-24T10:38:18+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-24T10:38:18+07:00","message":"HTTP error"}
+{"level":"error","error":"Request Timeout","time":"2026-04-24T10:38:25+07:00","message":"HTTP error"}
+{"level":"info","time":"2026-04-24T10:41:58+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-24T10:41:58+07:00","message":"Starting server"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":401,"duration":53.121853,"ip":"127.0.0.1","time":"2026-04-24T10:42:04+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/register","status":201,"duration":59.030756,"ip":"127.0.0.1","time":"2026-04-24T10:42:09+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":200,"duration":83.904245,"ip":"127.0.0.1","time":"2026-04-24T10:42:20+07:00","message":"HTTP request"}
+{"level":"info","method":"POST","path":"/api/auth/login","status":200,"duration":86.854007,"ip":"127.0.0.1","time":"2026-04-24T10:42:51+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/crown/","status":302,"duration":0.004769,"ip":"127.0.0.1","time":"2026-04-24T10:42:51+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/crown/login","status":200,"duration":0.005961,"ip":"127.0.0.1","time":"2026-04-24T10:42:51+07:00","message":"HTTP request"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.015309,"ip":"127.0.0.1","time":"2026-04-24T10:42:51+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-04-24T10:42:51+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.004789,"ip":"127.0.0.1","time":"2026-04-24T10:42:51+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-24T10:42:51+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.003637,"ip":"127.0.0.1","time":"2026-04-24T10:42:51+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-24T10:42:51+07:00","message":"HTTP error"}
+{"level":"error","error":"Request Timeout","time":"2026-04-24T10:43:01+07:00","message":"HTTP error"}
+{"level":"info","time":"2026-04-24T10:43:09+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-24T10:43:09+07:00","message":"Starting server"}
+{"level":"fatal","error":"failed to listen: listen tcp4 :3000: bind: address already in use","time":"2026-04-24T10:43:09+07:00","message":"Server failed to start"}
+{"level":"info","method":"GET","path":"/.well-known/appspecific/com.chrome.devtools.json","status":200,"duration":0.003958,"ip":"127.0.0.1","time":"2026-04-24T10:43:20+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /.well-known/appspecific/com.chrome.devtools.json","time":"2026-04-24T10:43:20+07:00","message":"HTTP error"}
+{"level":"info","method":"GET","path":"/favicon.ico","status":200,"duration":0.004799,"ip":"127.0.0.1","time":"2026-04-24T10:43:20+07:00","message":"HTTP request"}
+{"level":"error","error":"Cannot GET /favicon.ico","time":"2026-04-24T10:43:20+07:00","message":"HTTP error"}
+{"level":"error","error":"Request Timeout","time":"2026-04-24T10:43:30+07:00","message":"HTTP error"}
+{"level":"info","time":"2026-04-24T10:43:31+07:00","message":"Upload worker disabled, skipping start"}
+{"level":"info","port":"3000","environment":"development","time":"2026-04-24T10:43:31+07:00","message":"Starting server"}
+{"level":"fatal","error":"failed to listen: listen tcp4 :3000: bind: address already in use","time":"2026-04-24T10:43:31+07:00","message":"Server failed to start"}
