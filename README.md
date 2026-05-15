@@ -1,6 +1,6 @@
 # 🥭 Mangosteen
 
-**Lightweight Keycloak alternative in Go** - MVP for small businesses & systems.
+**Lightweight Keycloak alternative in Go** — MVP for small businesses & systems.
 
 ## Why Mangosteen?
 
@@ -30,48 +30,50 @@ Keycloak is powerful but **overwhelming** for small projects:
 - Microservices needing auth
 - Projects that outgrew JWT but don't need Keycloak
 - Teams wanting simple IAM without ops overhead
-- **Headless CMS** (e.g., Granate) needing external auth provider
+- **Salad Buah ecosystem** — IAM for Granate, Salak, Kelapa, Duwet
 
 ## Integrations
 
-Mangosteen is designed to be used as a lightweight auth provider for other services:
+Mangosteen is the IAM backbone for the Salad Buah (Pomegranate) ecosystem:
 
-### Granate CMS Integration
-Granate (Rust headless CMS) uses Mangosteen for all authentication:
-- JWT validation via JWKS endpoint (`/api/.well-known/jwks.json`)
-- Login/register proxy to Mangosteen APIs
-- User info endpoint delegation
-- See: https://github.com/wandyirawan/granate
+| Service | How it uses Mangosteen |
+|---------|----------------------|
+| **Granate** (Rust CMS) | JWT validation via JWKS, login/register proxy |
+| **Salak** (Product Service) | JWT verification on all protected endpoints |
+| **Kelapa** (Ecommerce) | Admin login, service tokens for API calls |
+| **Duwet** (Warehouse TUI) | Login via `/api/auth/login`, token for Salak API |
+
+All services verify tokens by fetching JWKS from `/.well-known/jwks.json`.
 
 ## Stack
 
-- **Go 1.25+** - Compile to single binary
-- **Fiber** - Fast HTTP framework
-- **SQLite** - Embedded DB, no setup
-- **sqlc** - Type-safe SQL (no ORM)
-- **Argon2id** - Secure password hashing
-- **JWT RS256** - Asymmetric signing with JWKS
+- **Go 1.25+** — Compile to single binary
+- **Fiber** — Fast HTTP framework
+- **SQLite** — Embedded DB, no setup
+- **sqlc** — Type-safe SQL (no ORM)
+- **Argon2id** — Secure password hashing
+- **JWT RS256** — Asymmetric signing with JWKS endpoint
 
 ## Structure
 
 ```
 cmd/server/      # Entry point
-config/        # Configuration
-sql/           # Migrations & queries
-internal/      # Business logic
-├── auth/       # JWT, login, register, refresh
-├── user/       # User CRUD + attributes
-├── crown/      # Admin console (PicoCSS + Alpine.js)
-├── health/     # Health checks
-├── admin/      # Admin API operations
-├── middleware/  # Auth + RBAC
-└── db/        # sqlc generated
-pkg/           # Shared packages
-├── cache/      # Valkey/Redis
-├── crypto/     # Password hashing
-├── logger/     # Structured logging
-├── queue/      # Upload queue
-└── worker/     # Background jobs
+config/          # Configuration
+sql/             # Migrations & queries
+internal/        # Business logic
+├── auth/         # JWT, login, register, refresh
+├── user/         # User CRUD + attributes
+├── crown/        # Admin console (PicoCSS + Alpine.js)
+├── health/       # Health checks
+├── admin/        # Admin API operations
+├── middleware/    # Auth + RBAC
+└── db/           # sqlc generated
+pkg/             # Shared packages
+├── cache/        # Valkey/Redis
+├── crypto/       # Password hashing
+├── logger/       # Structured logging
+├── queue/        # Upload queue
+└── worker/       # Background jobs
 ```
 
 **Flat folder** = idiomatic Go. No complex layer hierarchy.
@@ -79,6 +81,8 @@ pkg/           # Shared packages
 ## Features
 
 - ✅ JWT RS256 with JWKS endpoint
+- ✅ RSA key management (PKCS#1 + PKCS#8)
+- ✅ Key rotation support
 - ✅ Refresh token rotation
 - ✅ RBAC (admin/user roles)
 - ✅ User attributes (key-value, like Keycloak)
@@ -92,20 +96,85 @@ pkg/           # Shared packages
 ## Quick Start
 
 ```bash
-# Clone & run
+# Clone
 git clone https://github.com/wandyirawan/mangosteen.git
 cd mangosteen
 
-# Generate JWT keys
-chmod +x generate-certs.sh && ./generate-certs.sh
+# Generate RSA key pair
+mkdir -p keys
+openssl genrsa -out keys/private.pem 2048
+openssl rsa -in keys/private.pem -pubout -out keys/public.pem
 
-# Copy keys to .env
+# Configure
 cp .env.example .env
-# Edit .env with JWT_PRIVATE_KEY & JWT_PUBLIC_KEY
+# Required: JWT_PRIVATE_KEY=keys/private.pem
+# Required: JWT_PUBLIC_KEY=keys/public.pem
 
-# Build and run
-make run
-# or: go run cmd/server/main.go
+# Run
+go run cmd/server/main.go
+# → http://localhost:4000
+```
+
+## Configuration
+
+### Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `SERVER_PORT` | HTTP listen port | `4000` |
+| `DATABASE_DSN` | SQLite database path | `mangosee.db` |
+| `JWT_ISSUER` | JWT issuer claim | `mangosteen` |
+| `JWT_ACCESS_TTL` | Access token TTL (minutes) | `15` |
+| `JWT_REFRESH_TTL` | Refresh token TTL (days) | `7` |
+| `JWT_PRIVATE_KEY` | Path to RSA private key PEM | — |
+| `JWT_PUBLIC_KEY` | Path to RSA public key PEM | — |
+| `ADMIN_EMAIL` | Bootstrap admin email | — |
+| `ADMIN_PASSWORD` | Bootstrap admin password | — |
+
+### JWT Key Setup
+
+Mangosteen uses **RS256** (RSA 2048-bit) for JWT signing. Without keys configured, falls back to HS256 (development only).
+
+**Key file paths** — set in `.env`:
+```env
+JWT_PRIVATE_KEY=keys/private.pem
+JWT_PUBLIC_KEY=keys/public.pem
+```
+
+Both **PKCS#1** (`RSA PRIVATE KEY`) and **PKCS#8** (`PRIVATE KEY`) formats are supported.
+
+The JWKS endpoint serves public keys at `/.well-known/jwks.json`:
+```json
+{"keys":[{"kid":"a97ecceb","kty":"RSA","alg":"RS256","use":"sig","n":"...","e":"AQAB"}]}
+```
+
+### Integrating Services
+
+Services verify Mangosteen tokens by:
+1. Fetch JWKS from `http://localhost:4000/.well-known/jwks.json`
+2. Extract `kid` from JWT header
+3. Find matching public key in JWKS
+4. Verify signature with RS256
+
+```python
+# Python (Salak example)
+import jwt, requests
+from jwt.algorithms import RSAAlgorithm
+
+jwks = requests.get("http://localhost:4000/.well-known/jwks.json").json()
+header = jwt.get_unverified_header(token)
+key = next(k for k in jwks["keys"] if k["kid"] == header["kid"])
+public_key = RSAAlgorithm.from_jwk(key)
+payload = jwt.decode(token, public_key, algorithms=["RS256"])
+```
+
+```rust
+// Rust (Granate example)
+let jwks: JwkSet = reqwest::get(jwks_url).await?.json().await?;
+let header = decode_header(token)?;
+let jwk = jwks.find(&header.kid.unwrap())?;
+let key = DecodingKey::from_jwk(jwk)?;
+let claims = decode::<Claims>(token, &key, &Validation::new(Algorithm::RS256))?;
 ```
 
 ## Superadmin Bootstrap
@@ -114,7 +183,7 @@ Configure `.env` to auto-create admin user on first start:
 
 ```
 ADMIN_EMAIL=admin@example.com
-ADMIN_PASSWORD=admin123
+ADMIN_PASSWORD=***
 ```
 
 If admin already exists, skip. Login at `/admin/login`.
@@ -146,7 +215,6 @@ GET    /admin/users/:id     # User detail + tabs (auth required)
 
 **User Detail tabs:** Details (email/role/active) + Attributes (key-value CRUD).
 
-
 ## API Endpoints
 
 **Public:**
@@ -154,7 +222,6 @@ GET    /admin/users/:id     # User detail + tabs (auth required)
 POST /api/auth/login
 POST /api/auth/register
 POST /api/auth/refresh
-GET  /.well-known/openid-configuration
 GET  /.well-known/jwks.json
 GET  /api/health/live
 GET  /api/health/ready
@@ -220,4 +287,4 @@ No, if you need:
 
 ## License
 
-MIT - Free to use, modify, distribute.
+MIT — Free to use, modify, distribute.
