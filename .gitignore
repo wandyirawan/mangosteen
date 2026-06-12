@@ -1,2 +1,45 @@
+# Binary
+build/
+*.exe
+*.dll
+*.so
+*.dylib
 
+# Database
+*.db
+*.sqlite
+data/
+
+# Logs
+logs/
+*.log
+
+# Coverage
+coverage.*
+*.coverprofile
+
+# Env
+.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Aider
+.aider*
+
+# OpenCode
+.opencode/
+
+# Temp
+tmp/
+
+# Keys (JANGAN commit private keys!)
 keys/
+certs/
