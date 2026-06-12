@@ -5,15 +5,21 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"mangosteen/internal/db"
-	"mangosteen/pkg/worker"
+	"mangosteen/pkg/queue"
 )
 
+// UploadWorkerInterface defines the interface for upload worker operations needed by the admin handler
+type UploadWorkerInterface interface {
+	GetStats() (map[queue.Status]int64, error)
+	RetryFailedPermanent() error
+}
+
 type Handler struct {
-	uploadWorker *worker.UploadWorker
+	uploadWorker UploadWorkerInterface
 	db           *db.DB
 }
 
-func NewHandler(uploadWorker *worker.UploadWorker, database *db.DB) *Handler {
+func NewHandler(uploadWorker UploadWorkerInterface, database *db.DB) *Handler {
 	return &Handler{uploadWorker: uploadWorker, db: database}
 }
 

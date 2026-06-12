@@ -171,3 +171,13 @@ func (cr *Crown) UserDetail(c *fiber.Ctx) error {
 		"User":       u,
 	})
 }
+
+func (cr *Crown) RegisterRoutes(app *fiber.App) {
+	crown := app.Group("/admin")
+	crown.Get("/login", cr.LoginPage)
+	crown.Post("/login", cr.Login)
+	crown.Get("/logout", cr.Logout)
+	crown.Get("/", cr.Dashboard)
+	crown.Get("/users", cr.RequireAuth, cr.UsersList)
+	crown.Get("/users/:id", cr.RequireAuth, cr.UserDetail)
+}

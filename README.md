@@ -199,6 +199,9 @@ make dev
 
 # Build binary only
 make build
+
+# Run tests (requires CGO for SQLite)
+CGO_ENABLED=1 go test ./internal/... -v -count=1
 ```
 
 See `.air.toml` for config.

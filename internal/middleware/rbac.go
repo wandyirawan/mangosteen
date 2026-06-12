@@ -4,7 +4,15 @@ import "github.com/gofiber/fiber/v2"
 
 func RequireRole(roles ...string) fiber.Handler {
 	return func(c *fiber.Ctx) error {
-		userRole := c.Locals("role").(string)
+		roleVal := c.Locals("role")
+		if roleVal == nil {
+			return c.Status(403).JSON(fiber.Map{"error": "insufficient permissions"})
+		}
+
+		userRole, ok := roleVal.(string)
+		if !ok {
+			return c.Status(403).JSON(fiber.Map{"error": "insufficient permissions"})
+		}
 
 		for _, role := range roles {
 			if userRole == role {
