@@ -112,7 +112,7 @@ cp .env.example .env
 
 # Run
 go run cmd/server/main.go
-# → http://localhost:4000
+# → http://localhost:4001
 ```
 
 ## Configuration
@@ -121,7 +121,7 @@ go run cmd/server/main.go
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `SERVER_PORT` | HTTP listen port | `4000` |
+| `SERVER_PORT` | HTTP listen port | `4001` |
 | `DATABASE_DSN` | SQLite database path | `mangosee.db` |
 | `JWT_ISSUER` | JWT issuer claim | `mangosteen` |
 | `JWT_ACCESS_TTL` | Access token TTL (minutes) | `15` |
@@ -151,7 +151,7 @@ The JWKS endpoint serves public keys at `/.well-known/jwks.json`:
 ### Integrating Services
 
 Services verify Mangosteen tokens by:
-1. Fetch JWKS from `http://localhost:4000/.well-known/jwks.json`
+1. Fetch JWKS from `http://localhost:4001/.well-known/jwks.json`
 2. Extract `kid` from JWT header
 3. Find matching public key in JWKS
 4. Verify signature with RS256
@@ -161,7 +161,7 @@ Services verify Mangosteen tokens by:
 import jwt, requests
 from jwt.algorithms import RSAAlgorithm
 
-jwks = requests.get("http://localhost:4000/.well-known/jwks.json").json()
+jwks = requests.get("http://localhost:4001/.well-known/jwks.json").json()
 header = jwt.get_unverified_header(token)
 key = next(k for k in jwks["keys"] if k["kid"] == header["kid"])
 public_key = RSAAlgorithm.from_jwk(key)
